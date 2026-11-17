@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sohaib Aref, Creative Director</title>
+<meta name="description" content="Sohaib Aref is a creative director and motion artist based in Istanbul. Full site coming soon.">
+<script>if(!matchMedia("(prefers-reduced-motion:reduce)").matches)document.documentElement.classList.add("intro")</script>
+<link rel="canonical" href="https://sohaib-aref.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sohaib-aref.com/">
+<meta property="og:title" content="Sohaib Aref, Creative Director">
+<meta property="og:description" content="Creative director and motion artist based in Istanbul. Full site coming soon.">
+<meta property="og:image" content="https://sohaib-aref.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:Inter;src:url(fonts/inter-var.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Martian Mono";src:url(fonts/martian-mono-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Plex Arabic";src:url(fonts/plex-arabic-400.woff2) format("woff2");font-weight:400;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFF}
+@font-face{font-family:"Plex Arabic";src:url(fonts/plex-arabic-600.woff2) format("woff2");font-weight:600;font-display:swap;unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFF}
+*{box-sizing:border-box;margin:0}
+html,body{overflow-x:clip}
+body{background:#000;color:#fff;font-family:Inter,"Plex Arabic",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.page{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;justify-content:flex-start;gap:clamp(32px,5vw,72px);padding:40px}
+.mark{font-weight:900;font-size:13.6vw;line-height:.8;letter-spacing:-.045em;text-transform:uppercase;white-space:nowrap;margin-left:-.04em;padding-top:.06em}
+.mark .w{display:inline}
+.mark{position:relative}
+.l{position:relative;display:inline-block}
+.g{display:inline-block;backface-visibility:hidden;will-change:transform}
+.sym3d,.sym3d-sh{position:absolute;pointer-events:none}
+.sym3d{z-index:2}
+.sym3d-sh{z-index:1;mix-blend-mode:multiply;opacity:.24}
+.low{display:flex;justify-content:space-between;align-items:flex-start;gap:40px}
+.bio{max-width:44ch}
+.bio p{font-size:15px;line-height:1.55;color:#c9c9c9;text-wrap:pretty}
+.bio p+p{margin-top:.9em}
+.bio .wd{white-space:nowrap}
+.bio .ch{display:inline-block;text-align:center;white-space:pre}
+.mono{font-family:"Martian Mono","Plex Arabic",ui-monospace,monospace;font-size:11px;letter-spacing:.02em;text-transform:uppercase;line-height:1.6}
+.foot{margin-top:auto}
+.links{display:flex;gap:12px 24px;flex-wrap:wrap}
+a{color:#fff;text-decoration:none;border-bottom:1px solid #444;padding-bottom:2px;transition:border-color .3s}
+a:hover{border-color:#fff}
+a:focus-visible{outline:1px solid #fff;outline-offset:4px}
+.who{display:flex;align-items:flex-end;gap:28px;flex:none}
+.who__txt{text-align:right;margin-bottom:-3px}
+.who__txt .mono{color:#8a8a8a;margin-bottom:6px}
+.who__name{font-size:20px;font-weight:600;letter-spacing:-.02em;text-transform:uppercase;line-height:1}
+.frame{width:clamp(160px,15vw,220px);aspect-ratio:13/15;background:#fff;overflow:hidden}
+.frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+
+[lang="ar"] .bio{direction:rtl;text-align:right}
+[lang="ar"] .bio p{font-size:16px;line-height:1.8}
+[lang="ar"] .who__txt .mono{font-family:"Plex Arabic",sans-serif;font-size:13px;letter-spacing:0;line-height:1.35}
+.place{position:relative;display:flex;justify-content:flex-end}
+.place button{font:inherit;color:#fff;background:none;border:0;padding:0;cursor:pointer;font-size:20px;font-weight:600;letter-spacing:-.02em;text-transform:uppercase;line-height:1;display:flex;align-items:center;justify-content:flex-end;gap:10px;white-space:nowrap}
+.place__menu{position:absolute;top:100%;right:0;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:0;padding:5px 0 12px 24px;background:#000;visibility:hidden;pointer-events:none}
+.place__opt{padding:5px 0!important;color:#6f6f6f!important;opacity:0;transform:translateY(-6px);transition:opacity .25s,transform .5s cubic-bezier(.16,1,.3,1),color .2s}
+.place__opt:hover,.place__opt:focus-visible{color:#fff!important}
+.place:hover .place__menu,.place:focus-within .place__menu,.place.is-open .place__menu{visibility:visible;pointer-events:auto}
+.place:hover .place__opt,.place:focus-within .place__opt,.place.is-open .place__opt{opacity:1;transform:none}
+.place__opt:nth-of-type(2){transition-delay:.04s}.place__opt:nth-of-type(3){transition-delay:.08s}.place__opt:nth-of-type(4){transition-delay:.12s}
+.place__opt[hidden]{display:none}
+.roll{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.25em 0;margin:-.25em 0;white-space:nowrap}
+.roll__in{display:inline-block;will-change:transform}
+.place i{font:400 10px "Martian Mono",monospace;letter-spacing:.02em;color:#6f6f6f}
+.place__cur::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;animation:beat 1.6s ease-in-out infinite}
+.place:hover .place__cur::before,.place.is-open .place__cur::before{animation:none}
+.place button:focus-visible{outline:1px solid #fff;outline-offset:4px}
+@keyframes beat{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.6)}}
+@media (prefers-reduced-motion:reduce){.place__cur::before{animation:none}.place__opt{transition:none}}
+
+/* intro on load */
+.mark .w{display:inline-block;overflow:hidden;padding:.14em 0 .04em;margin:-.14em 0 -.04em}
+html.intro-done .mark .w{overflow:visible}
+@keyframes rise{from{transform:translateY(112%)}to{transform:none}}
+@keyframes lift{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes curtain{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes settle{from{transform:scale(1.18)}to{transform:none}}
+html.intro .mark .l{animation:rise 1.5s cubic-bezier(.16,1,.3,1) both paused}
+html.intro .mark .w:first-child .l{animation-delay:.1s}
+html.intro .mark .w:last-child .l{animation-delay:.2s}
+html.intro .bio p{animation:lift 1.3s cubic-bezier(.16,1,.3,1) both paused}
+html.intro .bio p:nth-child(1){animation-delay:.45s}html.intro .bio p:nth-child(2){animation-delay:.53s}html.intro .bio p:nth-child(3){animation-delay:.61s}html.intro .bio p:nth-child(4){animation-delay:.69s}
+html.intro .frame{animation:curtain 1.4s cubic-bezier(.16,1,.3,1) .3s both paused}
+html.intro .frame img{animation:settle 2s cubic-bezier(.16,1,.3,1) .3s both paused}
+html.intro .who__txt{animation:fade .6s linear .7s both paused}
+html.intro .foot{animation:fade .6s linear .9s both paused}
+html.intro.go .mark .l,html.intro.go .bio p,html.intro.go .frame,html.intro.go .frame img,html.intro.go .who__txt,html.intro.go .foot{animation-play-state:running}
+html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intro-done .frame img,html.intro-done .who__txt,html.intro-done .foot{animation:none}
+@media (max-width:810px){
+  .who__txt{margin-bottom:0}
+  .place{flex-direction:column;align-items:flex-start}
+  .place button{justify-content:flex-start}
+  .place__menu{position:static;visibility:visible;pointer-events:auto;flex-direction:row;flex-wrap:wrap;align-items:center;gap:0 16px;padding:10px 0 0;background:none}
+  .place__opt{opacity:1;transform:none;font-size:12px!important;font-weight:500!important;letter-spacing:0!important;gap:6px!important;padding:6px 0!important;color:#8a8a8a!important}
+  .place__cur::before{animation:none}
+  .page{padding:20px;gap:40px;justify-content:flex-start}
+  .mark{font-size:23.4vw;white-space:normal}
+  .mark .w{display:block}
+  .low{flex-direction:column-reverse;align-items:stretch;gap:40px}
+  .who{justify-content:space-between}
+  .who__txt{text-align:left;order:0}
+  .frame{width:min(42%,220px)}
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <h1 class="mark" data-fit lang="en" aria-label="Sohaib Aref"><span class="w" aria-hidden="true"><span class="l"><span class="g">S</span></span><span class="l"><span class="g">o</span></span><span class="l"><span class="g">h</span></span><span class="l"><span class="g">a</span></span><span class="l"><span class="g">i</span></span><span class="l"><span class="g">b</span></span></span> <span class="w" aria-hidden="true"><span class="l"><span class="g">A</span></span><span class="l"><span class="g">r</span></span><span class="l"><span class="g">e</span></span><span class="l"><span class="g">f</span></span></span></h1>
+  <div class="low">
+    <section class="bio" data-bio>
+      <p>I started in television as a VFX artist, working on other people’s shots one frame at a time. Those years taught me how much a single second can hold.</p>
+      <p>Then came motion design and 3D. Over time, what I cared about most moved earlier in the process, to the idea itself and the reason a piece should exist.</p>
+      <p>Today I work as a creative director. I look for the idea worth making and stay with it until it reaches the screen. I still love the making.</p>
+      <p>This site is being built. Until it is ready, write to me.</p>
+    </section>
+    <div class="who">
+      <div class="who__txt"><p class="mono"><span class="roll"><span class="roll__in" data-role>Creative Director</span></span></p><div class="place" data-place lang="en">
+          <button type="button" class="place__cur" data-cur aria-haspopup="true" aria-label="Choose a region to change the language"><span class="roll"><span class="roll__in" data-cur-t>Worldwide</span></span></button>
+          <div class="place__menu">
+            <button type="button" class="place__opt" data-loc="en" hidden><i>EN</i>Worldwide</button>
+            <button type="button" class="place__opt" data-loc="tr"><i>TR</i>Istanbul</button>
+            <button type="button" class="place__opt" data-loc="ar"><i>AR</i>Gulf</button>
+            <button type="button" class="place__opt" data-loc="fr"><i>FR</i>France</button>
+          </div>
+        </div></div>
+      <div class="frame"><img src="img/portrait-1200.jpg" srcset="img/portrait-480.jpg 480w, img/portrait-1200.jpg 1200w" sizes="220px" width="1200" height="1499" alt="Portrait of Sohaib Aref"></div>
+    </div>
+  </div>
+  <footer class="foot" lang="en"><p class="mono links"><a href="mailto:hello@sohaib-aref.com">hello@sohaib-aref.com</a><a href="https://www.instagram.com/sohaib_creative/" target="_blank" rel="noopener">Instagram</a><!-- LinkedIn: add the profile URL, then restore: <a href="LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn</a> --><a href="workshops.html">Workshops</a></p></footer>
+</main>
+<script>
+(function(){
+  var el=document.querySelector('[data-fit]');
+  function fit(){
+    if(window.innerWidth<=810){el.style.fontSize='';return}
+    el.style.fontSize='100px';
+    var w=el.parentNode.clientWidth-80, r=document.createRange();
+    r.selectNodeContents(el);
+    var tw=r.getBoundingClientRect().width;
+    el.style.fontSize=(100*w/tw*0.995)+'px';
+  }
+  fit();window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+(function(){
+  var T={"en": {"place": "Worldwide", "role": "Creative Director", "p": ["I started in television as a VFX artist, working on other people’s shots one frame at a time. Those years taught me how much a single second can hold.", "Then came motion design and 3D. Over time, what I cared about most moved earlier in the process, to the idea itself and the reason a piece should exist.", "Today I work as a creative director. I look for the idea worth making and stay with it until it reaches the screen. I still love the making.", "This site is being built. Until it is ready, write to me."]}, "tr": {"place": "Istanbul", "role": "Kreatif Direktör", "p": ["Televizyonda VFX sanatçısı olarak başladım. Başkalarının çekimleri üzerinde kare kare çalıştım. O yıllar bana tek bir saniyeye ne kadar çok şey sığabileceğini öğretti.", "Ardından motion tasarım ve 3D geldi. Zamanla ilgim sürecin en başına, fikrin kendisine ve bir işin neden yapılması gerektiğine kaydı.", "Bugün kreatif direktör olarak çalışıyorum. Yapılmaya değer fikri bulup ekrana çıkana kadar peşini bırakmıyorum. Üretmeyi hâlâ çok seviyorum.", "Bu site hazırlanıyor. Hazır olana kadar bana yazabilirsiniz."]}, "ar": {"place": "Gulf", "role": "مدير إبداعي", "p": ["بدأتُ في التلفزيون فنّانَ مؤثرات بصرية، أشتغل على لقطات الآخرين إطارًا بعد إطار. هناك فهمت كم تتّسع الثانية الواحدة.", "ثم انتقلت إلى الموشن جرافيك والتصميم ثلاثي الأبعاد. ومع الوقت صار اهتمامي يسبق التنفيذ، إلى الفكرة نفسها ولماذا يستحق العمل أن يُصنع أصلًا.", "اليوم أعمل مديرًا إبداعيًا. أبحث عن الفكرة التي تستحق أن تُصنع، وأبقى معها حتى تصل إلى الشاشة. وما زلت أحب الصنعة نفسها.", "الموقع قيد الإعداد. إلى أن يكتمل، راسلني."]}, "fr": {"place": "France", "role": "Directeur de création", "p": ["J’ai commencé à la télévision, comme artiste VFX. Je reprenais les plans des autres, image par image. C’est là que j’ai compris tout ce qu’une seconde peut contenir.", "Puis sont venus le motion design et la 3D. Avec le temps, ce qui m’intéresse le plus s’est déplacé vers l’amont : l’idée elle-même, et la raison d’être d’un projet.", "Aujourd’hui, je suis directeur de création. Je cherche l’idée qui mérite d’exister, puis je l’accompagne jusqu’à l’écran. J’aime toujours autant fabriquer.", "Ce site est en préparation. D’ici là, écrivez-moi."]}};
+  var root=document.documentElement,box=document.querySelector('[data-place]'),cur=box.querySelector('[data-cur]'),
+      bio=document.querySelector('[data-bio]'),role=document.querySelector('[data-role]'),ps=bio.querySelectorAll('p'),now='en';
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,E='cubic-bezier(.16,1,.3,1)';
+  var run=0,curT=box.querySelector('[data-cur-t]');
+  function roll(inner,to){
+    var mask=inner.parentNode;
+    inner.getAnimations().concat(mask.getAnimations()).forEach(function(a){a.cancel()});
+    if(reduce){inner.textContent=to;return}
+    var id=run,w0=mask.getBoundingClientRect().width;
+    inner.animate([{transform:'translateY(0)'},{transform:'translateY(-120%)'}],{duration:260,easing:'cubic-bezier(.7,0,.84,0)',fill:'forwards'}).finished.then(function(){
+      if(id!==run)return;
+      inner.getAnimations().forEach(function(a){a.cancel()});
+      inner.textContent=to;
+      var w1=mask.getBoundingClientRect().width;
+      mask.animate([{width:w0+'px'},{width:w1+'px'}],{duration:600,easing:E});
+      inner.animate([{transform:'translateY(120%)'},{transform:'translateY(0)'}],{duration:800,easing:E});
+    },function(){});
+  }
+  function apply(l){
+    root.lang=l;
+    T[l].p.forEach(function(t,i){ps[i].textContent=t});
+    if(window.__bioSplit)window.__bioSplit();
+  }
+  function menu(l){
+    box.querySelectorAll('.place__opt').forEach(function(b){b.hidden=(b.dataset.loc===l)});
+  }
+  function clear(){[].forEach.call(ps,function(p){p.getAnimations().forEach(function(a){a.cancel()})})}
+  function set(l){
+    if(l===now)return;now=l;var id=++run;
+    menu(l);roll(role,T[l].role);roll(curT,T[l].place);
+    clear();
+    if(reduce){apply(l);return}
+    var outs=[].map.call(ps,function(p,i){
+      return p.animate([{opacity:1,transform:'translateY(0)',filter:'blur(0)'},{opacity:0,transform:'translateY(-18px)',filter:'blur(8px)'}],{duration:320,delay:i*45,easing:'cubic-bezier(.7,0,.84,0)',fill:'forwards'}).finished;
+    });
+    Promise.all(outs).then(function(){
+      if(id!==run)return;
+      clear();apply(l);
+      [].forEach.call(ps,function(p,i){
+        p.animate([{opacity:0,transform:'translateY(28px)',filter:'blur(10px)'},{opacity:1,transform:'translateY(0)',filter:'blur(0)'}],{duration:1100,delay:i*90,easing:E,fill:'backwards'});
+      });
+    },function(){});
+  }
+  box.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    if(b===cur){box.classList.toggle('is-open');return}
+    set(b.dataset.loc);box.classList.remove('is-open');b.blur();
+  });
+  document.addEventListener('click',function(e){if(!box.contains(e.target))box.classList.remove('is-open')});
+})();
+</script>
+
+<script>
+(function(){
+  if(!matchMedia('(hover:hover) and (pointer:fine)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  var bio=document.querySelector('[data-bio]'),C=[],dirty=true,mx=-1e4,my=-1e4,run=false,R=66;
+  function split(){
+    C=[];
+    if(document.documentElement.lang==='ar')return;   // Arabic letters must stay joined
+    var made=[];
+    bio.querySelectorAll('p').forEach(function(p){
+      var words=p.textContent.split(' ');p.textContent='';
+      words.forEach(function(w,i){
+        var wd=document.createElement('span');wd.className='wd';
+        Array.from(w).forEach(function(c){var s=document.createElement('span');s.className='ch';s.textContent=c;wd.appendChild(s);made.push(s)});
+        p.appendChild(wd);if(i<words.length-1)p.appendChild(document.createTextNode(' '));
+      });
+    });
+    var ws=made.map(function(s){return s.getBoundingClientRect().width});
+    made.forEach(function(s,i){s.style.width=ws[i]+'px';C.push({el:s,k:0,x:0,y:0})});
+    dirty=true;setTimeout(function(){dirty=true},1700);
+  }
+  function measure(){
+    var sx=scrollX,sy=scrollY;
+    C.forEach(function(c){var r=c.el.getBoundingClientRect();c.x=r.left+r.width/2+sx;c.y=r.top+r.height/2+sy});
+    dirty=false;
+  }
+  function frame(){
+    if(dirty)measure();
+    var px=mx+scrollX,py=my+scrollY,busy=false;
+    for(var i=0;i<C.length;i++){
+      var c=C[i],dx=c.x-px,dy=(c.y-py)*1.5,t=0;
+      if(dx<R&&dx>-R&&dy<R&&dy>-R){var d=Math.sqrt(dx*dx+dy*dy);t=Math.max(0,1-d/R);t=t*t*(3-2*t)}
+      if(t===0&&c.k===0)continue;
+      c.k+=(t-c.k)*.14;if(Math.abs(t-c.k)<.003)c.k=t;else busy=true;
+      c.el.style.fontWeight=Math.round(400+460*c.k);
+      c.el.style.color=c.k?'rgb('+(201+54*c.k|0)+','+(201+54*c.k|0)+','+(201+54*c.k|0)+')':'';
+    }
+    if(busy)requestAnimationFrame(frame);else run=false;
+  }
+  function go(){if(!run){run=true;requestAnimationFrame(frame)}}
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;go()},{passive:true});
+  document.addEventListener('mouseleave',function(){mx=my=-1e4;go()});
+  addEventListener('resize',function(){dirty=true});
+  addEventListener('introdone',function(){dirty=true});
+  window.__bioSplit=split;
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(split);else split();
+})();
+</script>
+<script>addEventListener("load",function(){setTimeout(function(){import("./js/sym3d.js")},1200)})</script>
+<script>
+(function(){
+  var h=document.documentElement;if(!h.classList.contains('intro'))return;
+  var done=false;function go(){if(done)return;done=true;requestAnimationFrame(function(){h.classList.add('go');setTimeout(function(){h.classList.add('intro-done');dispatchEvent(new Event('introdone'))},2700)})}
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(go);setTimeout(go,1600);
+})();
+</script>
+</body>
+</html>
