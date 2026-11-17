@@ -27,8 +27,7 @@
 *{box-sizing:border-box;margin:0}
 html,body{overflow-x:clip}
 body{background:#000;color:#fff;font-family:Inter,"Noto Arabic",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-.page{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;padding:28px 40px 40px}
-.top{display:flex;justify-content:space-between;align-items:baseline;gap:10px 24px;flex-wrap:wrap;margin-bottom:clamp(22px,2.6vw,40px)}
+.page{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;padding:40px}
 .content{flex:1;display:flex;flex-direction:column}
 .mark{font-weight:900;font-size:13.6vw;line-height:.8;letter-spacing:-.035em;text-transform:uppercase;white-space:nowrap;margin-left:-.04em;padding-top:.06em}
 .mark .w{display:inline}
@@ -43,7 +42,7 @@ body{background:#000;color:#fff;font-family:Inter,"Noto Arabic",system-ui,sans-s
 .bio .wd{white-space:nowrap}
 .bio .ch{display:inline-block;text-align:center;white-space:pre}
 .mono{font-family:"Martian Mono","Noto Arabic",ui-monospace,monospace;font-size:clamp(11px,.2vw + 8.2px,12px);letter-spacing:.02em;text-transform:uppercase;line-height:1.6}
-.foot{display:none}
+.foot{margin-top:clamp(36px,4.5vw,64px)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .links{display:flex;gap:12px 24px;flex-wrap:wrap}
 a{color:#fff;text-decoration:none;border-bottom:1px solid #444;padding-bottom:2px;transition:border-color .3s}
@@ -87,9 +86,9 @@ html.intro .frame img{animation:settle 2.6s cubic-bezier(.22,1,.36,1) .3s both p
 html.intro .bio p{--b:9px;--y:12px;animation:focus 1.7s cubic-bezier(.22,1,.36,1) both paused}
 html.intro .bio p:nth-child(1){animation-delay:.55s}html.intro .bio p:nth-child(2){animation-delay:.65s}html.intro .bio p:nth-child(3){animation-delay:.75s}html.intro .bio p:nth-child(4){animation-delay:.85s}
 html.intro .who__txt{--b:6px;animation:focus 1.5s cubic-bezier(.22,1,.36,1) .85s both paused}
-html.intro .top,html.intro .foot{--b:6px;animation:focus 1.5s cubic-bezier(.22,1,.36,1) 1.05s both paused}
-html.intro.go .mark .l,html.intro.go .bio p,html.intro.go .frame,html.intro.go .frame img,html.intro.go .who__txt,html.intro.go .top,html.intro.go .foot{animation-play-state:running}
-html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intro-done .frame img,html.intro-done .who__txt,html.intro-done .top,html.intro-done .foot{animation:none}
+html.intro .foot{--b:6px;animation:focus 1.5s cubic-bezier(.22,1,.36,1) 1.05s both paused}
+html.intro.go .mark .l,html.intro.go .bio p,html.intro.go .frame,html.intro.go .frame img,html.intro.go .who__txt,html.intro.go .foot{animation-play-state:running}
+html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intro-done .frame img,html.intro-done .who__txt,html.intro-done .foot{animation:none}
 @media (max-width:810px),(max-width:1100px) and (max-aspect-ratio:4/5){
   .who__txt{margin-bottom:0}
   .place{flex-direction:column;align-items:flex-start}
@@ -97,10 +96,8 @@ html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intr
   .place__menu{position:static;visibility:visible;pointer-events:auto;flex-direction:row;flex-wrap:wrap;align-items:center;gap:0 16px;padding:10px 0 0;background:none}
   .place__opt{opacity:1;transform:none;font-size:12px!important;font-weight:500!important;letter-spacing:0!important;gap:6px!important;padding:6px 0!important;color:#8a8a8a!important}
   .place__cur::before{animation:none}
-  .page{padding:18px 20px 28px}
-  .top{margin-bottom:26px}
-  .top .mail{display:none}
-  .foot{display:block;margin-top:44px}
+  .page{padding:20px 20px 28px}
+  .foot{margin-top:44px}
   .mark{font-size:23.4vw;white-space:normal}
   .mark .w{display:block}
   .low{flex-direction:column-reverse;align-items:stretch;gap:40px;margin-top:40px;padding-top:0}
@@ -109,7 +106,7 @@ html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intr
   .frame{width:min(42%,220px)}
 }
 @media (min-width:600px) and (max-width:1100px) and (max-aspect-ratio:4/5){
-  .page{padding:28px 40px 40px}
+  .page{padding:40px}
   .bio{max-width:none}.bio p{font-size:19px}
   .frame{width:min(36%,300px)}
   .low{margin-top:56px}
@@ -118,7 +115,6 @@ html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intr
 </head>
 <body>
 <div class="page">
-  <header class="top mono" lang="en"><a class="mail" href="mailto:hello@sohaib-aref.com">hello@sohaib-aref.com</a><nav class="links" aria-label="Links"><a href="https://www.instagram.com/sohaib_creative/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/sohaib-creative/" target="_blank" rel="noopener">LinkedIn</a><a href="workshops.html">Workshops</a></nav></header>
   <main class="content">
   <h1 class="mark" data-fit lang="en" aria-label="Sohaib Aref"><span class="w" aria-hidden="true"><span class="l" style="--i:0"><span class="g">S</span></span><span class="l" style="--i:1"><span class="g">o</span></span><span class="l" style="--i:2"><span class="g">h</span></span><span class="l" style="--i:3"><span class="g">a</span></span><span class="l" style="--i:4"><span class="g">i</span></span><span class="l" style="--i:5"><span class="g">b</span></span></span> <span class="w" aria-hidden="true"><span class="l" style="--i:6"><span class="g">A</span></span><span class="l" style="--i:7"><span class="g">r</span></span><span class="l" style="--i:8"><span class="g">e</span></span><span class="l" style="--i:9"><span class="g">f</span></span></span></h1>
   <div class="low">
@@ -142,7 +138,7 @@ html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intr
     </div>
   </div>
   </main>
-  <footer class="foot" lang="en"><p class="mono"><a href="mailto:hello@sohaib-aref.com">hello@sohaib-aref.com</a></p></footer>
+  <footer class="foot" lang="en"><p class="mono links"><a href="mailto:hello@sohaib-aref.com">hello@sohaib-aref.com</a><a href="https://www.instagram.com/sohaib_creative/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/sohaib-creative/" target="_blank" rel="noopener">LinkedIn</a><a href="workshops.html">Workshops</a></p></footer>
 </div>
 <script>
 (function(){
@@ -278,7 +274,7 @@ html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intr
 </script>
 <script>
 (function(){
-  var n=0;function go(){if(++n===2)setTimeout(function(){import("./js/sym3d.js?v=6")},400)}
+  var n=0;function go(){if(++n===2)setTimeout(function(){import("./js/sym3d.js?v=7")},400)}
   addEventListener("load",go);
   if(document.documentElement.classList.contains("intro"))addEventListener("introdone",go);else go();
   // the Arabic font loads quietly so the switch to Gulf is instant
