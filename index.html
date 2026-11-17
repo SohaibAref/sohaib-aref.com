@@ -19,6 +19,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Sohaib Aref","jobTitle":"Creative Director","url":"https://sohaib-aref.com/","image":"https://sohaib-aref.com/img/portrait-1200.jpg","email":"mailto:hello@sohaib-aref.com","address":{"@type":"PostalAddress","addressLocality":"Istanbul","addressCountry":"TR"},"sameAs":["https://www.instagram.com/sohaib_creative/","https://www.linkedin.com/in/sohaib-creative/"]}</script>
 <style>
 @font-face{font-family:Inter;src:url(fonts/inter-var.woff2) format("woff2");font-weight:100 900;font-display:swap}
 @font-face{font-family:"Martian Mono";src:url(fonts/martian-mono-400.woff2) format("woff2");font-weight:400;font-display:swap}
@@ -26,21 +27,24 @@
 *{box-sizing:border-box;margin:0}
 html,body{overflow-x:clip}
 body{background:#000;color:#fff;font-family:Inter,"Noto Arabic",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-.page{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;justify-content:flex-start;gap:clamp(32px,5vw,72px);padding:40px}
-.mark{font-weight:900;font-size:13.6vw;line-height:.8;letter-spacing:-.045em;text-transform:uppercase;white-space:nowrap;margin-left:-.04em;padding-top:.06em}
+.page{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;padding:28px 40px 40px}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:10px 24px;flex-wrap:wrap;margin-bottom:clamp(22px,2.6vw,40px)}
+.content{flex:1;display:flex;flex-direction:column}
+.mark{font-weight:900;font-size:13.6vw;line-height:.8;letter-spacing:-.035em;text-transform:uppercase;white-space:nowrap;margin-left:-.04em;padding-top:.06em}
 .mark .w{display:inline}
 .mark{position:relative}
 .l{position:relative;display:inline-block}
 .g{display:inline-block;backface-visibility:hidden;will-change:transform}
 .sym3d{position:absolute;pointer-events:none;z-index:2}
-.low{display:flex;justify-content:space-between;align-items:flex-start;gap:40px}
+.low{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:auto;padding-top:clamp(48px,7vw,120px)}
 .bio{max-width:44ch}
-.bio p{font-size:15px;line-height:1.55;color:#c9c9c9;text-wrap:pretty}
+.bio p{font-size:clamp(15px,.55vw + 7.5px,18px);line-height:1.55;color:#c9c9c9;text-wrap:pretty}
 .bio p+p{margin-top:.9em}
 .bio .wd{white-space:nowrap}
 .bio .ch{display:inline-block;text-align:center;white-space:pre}
-.mono{font-family:"Martian Mono","Noto Arabic",ui-monospace,monospace;font-size:11px;letter-spacing:.02em;text-transform:uppercase;line-height:1.6}
-.foot{margin-top:auto}
+.mono{font-family:"Martian Mono","Noto Arabic",ui-monospace,monospace;font-size:clamp(11px,.2vw + 8.2px,12px);letter-spacing:.02em;text-transform:uppercase;line-height:1.6}
+.foot{display:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .links{display:flex;gap:12px 24px;flex-wrap:wrap}
 a{color:#fff;text-decoration:none;border-bottom:1px solid #444;padding-bottom:2px;transition:border-color .3s}
 a:hover{border-color:#fff}
@@ -50,6 +54,7 @@ a:focus-visible{outline:1px solid #fff;outline-offset:4px}
 .who__txt .mono{color:#8a8a8a;margin-bottom:6px}
 .who__name{font-size:20px;font-weight:600;letter-spacing:-.02em;text-transform:uppercase;line-height:1}
 .frame{width:clamp(160px,15vw,220px);aspect-ratio:13/15;background:#000;overflow:hidden}
+.frame picture{display:contents}
 .frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 12%}
 
 [lang="ar"] .bio{direction:rtl;text-align:right;font-family:"Noto Arabic",Inter,sans-serif}
@@ -57,16 +62,16 @@ a:focus-visible{outline:1px solid #fff;outline-offset:4px}
 [lang="ar"] .who__txt .mono{font-family:"Noto Arabic",sans-serif;font-size:13px;letter-spacing:0;line-height:1.35}
 .place{position:relative;display:flex;justify-content:flex-end}
 .place button{font:inherit;color:#fff;background:none;border:0;padding:0;cursor:pointer;font-size:20px;font-weight:600;letter-spacing:-.02em;text-transform:uppercase;line-height:1;display:flex;align-items:center;justify-content:flex-end;gap:10px;white-space:nowrap}
-.place__menu{position:absolute;top:100%;right:0;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:0;padding:5px 0 12px 24px;background:#000;visibility:hidden;pointer-events:none}
-.place__opt{padding:5px 0!important;color:#6f6f6f!important;opacity:0;transform:translateY(-6px);transition:opacity .25s,transform .5s cubic-bezier(.16,1,.3,1),color .2s}
+.place__menu{position:absolute;bottom:100%;right:0;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:0;padding:14px 0 8px 24px;background:#000;visibility:hidden;pointer-events:none}
+.place__opt{padding:5px 0!important;color:#7a7a7a!important;opacity:0;transform:translateY(6px);transition:opacity .25s,transform .5s cubic-bezier(.16,1,.3,1),color .2s}
 .place__opt:hover,.place__opt:focus-visible{color:#fff!important}
 .place:hover .place__menu,.place:focus-within .place__menu,.place.is-open .place__menu{visibility:visible;pointer-events:auto}
 .place:hover .place__opt,.place:focus-within .place__opt,.place.is-open .place__opt{opacity:1;transform:none}
-.place__opt:nth-of-type(2){transition-delay:.04s}.place__opt:nth-of-type(3){transition-delay:.08s}.place__opt:nth-of-type(4){transition-delay:.12s}
+.place__opt:nth-of-type(4){transition-delay:0s}.place__opt:nth-of-type(3){transition-delay:.04s}.place__opt:nth-of-type(2){transition-delay:.08s}.place__opt:nth-of-type(1){transition-delay:.12s}
 .place__opt[hidden]{display:none}
 .roll{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.25em 0;margin:-.25em 0;white-space:nowrap}
 .roll__in{display:inline-block;will-change:transform}
-.place i{font:400 10px "Martian Mono",monospace;letter-spacing:.02em;color:#6f6f6f}
+.place i{font:400 10px "Martian Mono",monospace;letter-spacing:.02em;color:#919191}
 .place__cur::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;animation:beat 1.6s ease-in-out infinite}
 .place:hover .place__cur::before,.place.is-open .place__cur::before{animation:none}
 .place button:focus-visible{outline:1px solid #fff;outline-offset:4px}
@@ -82,39 +87,50 @@ html.intro .frame img{animation:settle 2.6s cubic-bezier(.22,1,.36,1) .3s both p
 html.intro .bio p{--b:9px;--y:12px;animation:focus 1.7s cubic-bezier(.22,1,.36,1) both paused}
 html.intro .bio p:nth-child(1){animation-delay:.55s}html.intro .bio p:nth-child(2){animation-delay:.65s}html.intro .bio p:nth-child(3){animation-delay:.75s}html.intro .bio p:nth-child(4){animation-delay:.85s}
 html.intro .who__txt{--b:6px;animation:focus 1.5s cubic-bezier(.22,1,.36,1) .85s both paused}
-html.intro .foot{--b:6px;animation:focus 1.5s cubic-bezier(.22,1,.36,1) 1.05s both paused}
-html.intro.go .mark .l,html.intro.go .bio p,html.intro.go .frame,html.intro.go .frame img,html.intro.go .who__txt,html.intro.go .foot{animation-play-state:running}
-html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intro-done .frame img,html.intro-done .who__txt,html.intro-done .foot{animation:none}
-@media (max-width:810px){
+html.intro .top,html.intro .foot{--b:6px;animation:focus 1.5s cubic-bezier(.22,1,.36,1) 1.05s both paused}
+html.intro.go .mark .l,html.intro.go .bio p,html.intro.go .frame,html.intro.go .frame img,html.intro.go .who__txt,html.intro.go .top,html.intro.go .foot{animation-play-state:running}
+html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intro-done .frame img,html.intro-done .who__txt,html.intro-done .top,html.intro-done .foot{animation:none}
+@media (max-width:810px),(max-width:1100px) and (max-aspect-ratio:4/5){
   .who__txt{margin-bottom:0}
   .place{flex-direction:column;align-items:flex-start}
   .place button{justify-content:flex-start}
   .place__menu{position:static;visibility:visible;pointer-events:auto;flex-direction:row;flex-wrap:wrap;align-items:center;gap:0 16px;padding:10px 0 0;background:none}
   .place__opt{opacity:1;transform:none;font-size:12px!important;font-weight:500!important;letter-spacing:0!important;gap:6px!important;padding:6px 0!important;color:#8a8a8a!important}
   .place__cur::before{animation:none}
-  .page{padding:20px;gap:40px;justify-content:flex-start}
+  .page{padding:18px 20px 28px}
+  .top{margin-bottom:26px}
+  .top .mail{display:none}
+  .foot{display:block;margin-top:44px}
   .mark{font-size:23.4vw;white-space:normal}
   .mark .w{display:block}
-  .low{flex-direction:column-reverse;align-items:stretch;gap:40px}
+  .low{flex-direction:column-reverse;align-items:stretch;gap:40px;margin-top:40px;padding-top:0}
   .who{justify-content:space-between}
   .who__txt{text-align:left;order:0}
   .frame{width:min(42%,220px)}
 }
+@media (min-width:600px) and (max-width:1100px) and (max-aspect-ratio:4/5){
+  .page{padding:28px 40px 40px}
+  .bio{max-width:none}.bio p{font-size:19px}
+  .frame{width:min(36%,300px)}
+  .low{margin-top:56px}
+}
 </style>
 </head>
 <body>
-<main class="page">
+<div class="page">
+  <header class="top mono" lang="en"><a class="mail" href="mailto:hello@sohaib-aref.com">hello@sohaib-aref.com</a><nav class="links" aria-label="Links"><a href="https://www.instagram.com/sohaib_creative/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/sohaib-creative/" target="_blank" rel="noopener">LinkedIn</a><a href="workshops.html">Workshops</a></nav></header>
+  <main class="content">
   <h1 class="mark" data-fit lang="en" aria-label="Sohaib Aref"><span class="w" aria-hidden="true"><span class="l" style="--i:0"><span class="g">S</span></span><span class="l" style="--i:1"><span class="g">o</span></span><span class="l" style="--i:2"><span class="g">h</span></span><span class="l" style="--i:3"><span class="g">a</span></span><span class="l" style="--i:4"><span class="g">i</span></span><span class="l" style="--i:5"><span class="g">b</span></span></span> <span class="w" aria-hidden="true"><span class="l" style="--i:6"><span class="g">A</span></span><span class="l" style="--i:7"><span class="g">r</span></span><span class="l" style="--i:8"><span class="g">e</span></span><span class="l" style="--i:9"><span class="g">f</span></span></span></h1>
   <div class="low">
     <section class="bio" data-bio>
       <p>I started in television as a VFX artist, working on other people’s shots one frame at a time. Those years taught me how much a single second can hold.</p>
       <p>Then came motion design and 3D. Over time, what I cared about most moved earlier in the process, to the idea itself and the reason a piece should exist.</p>
       <p>Today I work as a creative director. I look for the idea worth making and stay with it until it reaches the screen. I still love the making.</p>
-      <p>This site is being built. Until it is ready, write to me.</p>
+      <p class="cta">This site is being built. Until it is ready, <a href="mailto:hello@sohaib-aref.com">write to me</a>.</p>
     </section>
     <div class="who">
       <div class="who__txt"><p class="mono"><span class="roll"><span class="roll__in" data-role>Creative Director</span></span></p><div class="place" data-place lang="en">
-          <button type="button" class="place__cur" data-cur aria-haspopup="true" aria-label="Choose a region to change the language"><span class="roll"><span class="roll__in" data-cur-t>Worldwide</span></span></button>
+          <button type="button" class="place__cur" data-cur aria-haspopup="true"><span class="roll"><span class="roll__in" data-cur-t>Worldwide</span></span><span class="sr">, change region and language</span></button>
           <div class="place__menu">
             <button type="button" class="place__opt" data-loc="en" hidden><i>EN</i>Worldwide</button>
             <button type="button" class="place__opt" data-loc="tr"><i>TR</i>Istanbul</button>
@@ -122,18 +138,19 @@ html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intr
             <button type="button" class="place__opt" data-loc="fr"><i>FR</i>France</button>
           </div>
         </div></div>
-      <div class="frame"><img src="img/portrait-1200.jpg" srcset="img/portrait-480.jpg 480w, img/portrait-1200.jpg 1200w" sizes="220px" width="1200" height="1499" alt="Portrait of Sohaib Aref"></div>
+      <div class="frame"><picture><source type="image/webp" srcset="img/portrait-320.webp 320w, img/portrait-480.webp 480w, img/portrait-960.webp 960w" sizes="(max-width:810px) 40vw, (max-width:1100px) and (max-aspect-ratio:4/5) 300px, 220px"><img src="img/portrait-480.jpg" srcset="img/portrait-480.jpg 480w, img/portrait-1200.jpg 1200w" sizes="(max-width:810px) 40vw, (max-width:1100px) and (max-aspect-ratio:4/5) 300px, 220px" width="1200" height="1499" alt="Portrait of Sohaib Aref"></picture></div>
     </div>
   </div>
-  <footer class="foot" lang="en"><p class="mono links"><a href="mailto:hello@sohaib-aref.com">hello@sohaib-aref.com</a><a href="https://www.instagram.com/sohaib_creative/" target="_blank" rel="noopener">Instagram</a><!-- LinkedIn: add the profile URL, then restore: <a href="LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn</a> --><a href="workshops.html">Workshops</a></p></footer>
-</main>
+  </main>
+  <footer class="foot" lang="en"><p class="mono"><a href="mailto:hello@sohaib-aref.com">hello@sohaib-aref.com</a></p></footer>
+</div>
 <script>
 (function(){
   var el=document.querySelector('[data-fit]');
   function fit(){
-    if(window.innerWidth<=810){el.style.fontSize='';return}
+    if(matchMedia('(max-width:810px),(max-width:1100px) and (max-aspect-ratio:4/5)').matches){el.style.fontSize='';return}
     el.style.fontSize='100px';
-    var w=el.parentNode.clientWidth-80, r=document.createRange();
+    var w=el.parentNode.clientWidth, r=document.createRange();
     r.selectNodeContents(el);
     var tw=r.getBoundingClientRect().width;
     el.style.fontSize=(100*w/tw*0.995)+'px';
@@ -144,7 +161,7 @@ html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intr
 </script>
 <script>
 (function(){
-  var T={"en": {"place": "Worldwide", "role": "Creative Director", "p": ["I started in television as a VFX artist, working on other people’s shots one frame at a time. Those years taught me how much a single second can hold.", "Then came motion design and 3D. Over time, what I cared about most moved earlier in the process, to the idea itself and the reason a piece should exist.", "Today I work as a creative director. I look for the idea worth making and stay with it until it reaches the screen. I still love the making.", "This site is being built. Until it is ready, write to me."]}, "tr": {"place": "Istanbul", "role": "Kreatif Direktör", "p": ["Televizyonda VFX sanatçısı olarak başladım. Başkalarının çekimleri üzerinde kare kare çalıştım. O yıllar bana tek bir saniyeye ne kadar çok şey sığabileceğini öğretti.", "Ardından motion tasarım ve 3D geldi. Zamanla ilgim sürecin en başına, fikrin kendisine ve bir işin neden yapılması gerektiğine kaydı.", "Bugün kreatif direktör olarak çalışıyorum. Yapılmaya değer fikri bulup ekrana çıkana kadar peşini bırakmıyorum. Üretmeyi hâlâ çok seviyorum.", "Bu site hazırlanıyor. Hazır olana kadar bana yazabilirsiniz."]}, "ar": {"place": "Gulf", "role": "مدير إبداعي", "p": ["بدأتُ في التلفزيون فنّانَ مؤثرات بصرية، أشتغل على لقطات الآخرين إطارًا بعد إطار. هناك فهمت كم تتّسع الثانية الواحدة.", "ثم انتقلت إلى الموشن جرافيك والتصميم ثلاثي الأبعاد. ومع الوقت صار اهتمامي يسبق التنفيذ، إلى الفكرة نفسها ولماذا يستحق العمل أن يُصنع أصلًا.", "اليوم أعمل مديرًا إبداعيًا. أبحث عن الفكرة التي تستحق أن تُصنع، وأبقى معها حتى تصل إلى الشاشة. وما زلت أحب الصنعة نفسها.", "الموقع قيد الإعداد. إلى أن يكتمل، راسلني."]}, "fr": {"place": "France", "role": "Directeur de création", "p": ["J’ai commencé à la télévision, comme artiste VFX. Je reprenais les plans des autres, image par image. C’est là que j’ai compris tout ce qu’une seconde peut contenir.", "Puis sont venus le motion design et la 3D. Avec le temps, ce qui m’intéresse le plus s’est déplacé vers l’amont : l’idée elle-même, et la raison d’être d’un projet.", "Aujourd’hui, je suis directeur de création. Je cherche l’idée qui mérite d’exister, puis je l’accompagne jusqu’à l’écran. J’aime toujours autant fabriquer.", "Ce site est en préparation. D’ici là, écrivez-moi."]}};
+  var T={"en": {"place": "Worldwide", "role": "Creative Director", "p": ["I started in television as a VFX artist, working on other people’s shots one frame at a time. Those years taught me how much a single second can hold.", "Then came motion design and 3D. Over time, what I cared about most moved earlier in the process, to the idea itself and the reason a piece should exist.", "Today I work as a creative director. I look for the idea worth making and stay with it until it reaches the screen. I still love the making."], "cta": ["This site is being built. Until it is ready, ", "write to me", "."]}, "tr": {"place": "Istanbul", "role": "Kreatif Direktör", "p": ["Televizyonda VFX sanatçısı olarak başladım. Başkalarının çekimleri üzerinde kare kare çalıştım. O yıllar bana tek bir saniyeye ne kadar çok şey sığabileceğini öğretti.", "Ardından motion tasarım ve 3D geldi. Zamanla ilgim sürecin en başına, fikrin kendisine ve bir işin neden yapılması gerektiğine kaydı.", "Bugün kreatif direktör olarak çalışıyorum. Yapılmaya değer fikri bulup ekrana çıkana kadar peşini bırakmıyorum. Üretmeyi hâlâ çok seviyorum."], "cta": ["Bu site hazırlanıyor. Hazır olana kadar ", "bana yazabilirsiniz", "."]}, "ar": {"place": "Gulf", "role": "مدير إبداعي", "p": ["بدأتُ في التلفزيون فنّانَ مؤثرات بصرية، أشتغل على لقطات الآخرين إطارًا بعد إطار. هناك فهمت كم تتّسع الثانية الواحدة.", "ثم انتقلت إلى الموشن جرافيك والتصميم ثلاثي الأبعاد. ومع الوقت صار اهتمامي يسبق التنفيذ، إلى الفكرة نفسها ولماذا يستحق العمل أن يُصنع أصلًا.", "اليوم أعمل مديرًا إبداعيًا. أبحث عن الفكرة التي تستحق أن تُصنع، وأبقى معها حتى تصل إلى الشاشة. وما زلت أحب الصنعة نفسها."], "cta": ["الموقع قيد الإعداد. إلى أن يكتمل، ", "راسلني", "."]}, "fr": {"place": "France", "role": "Directeur de création", "p": ["J’ai commencé à la télévision, comme artiste VFX. Je reprenais les plans des autres, image par image. C’est là que j’ai compris tout ce qu’une seconde peut contenir.", "Puis sont venus le motion design et la 3D. Avec le temps, ce qui m’intéresse le plus s’est déplacé vers l’amont : l’idée elle-même, et la raison d’être d’un projet.", "Aujourd’hui, je suis directeur de création. Je cherche l’idée qui mérite d’exister, puis je l’accompagne jusqu’à l’écran. J’aime toujours autant fabriquer."], "cta": ["Ce site est en préparation. D’ici là, ", "écrivez-moi", "."]}};
   var root=document.documentElement,box=document.querySelector('[data-place]'),cur=box.querySelector('[data-cur]'),
       bio=document.querySelector('[data-bio]'),role=document.querySelector('[data-role]'),ps=bio.querySelectorAll('p'),now='en';
   var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,E='cubic-bezier(.16,1,.3,1)';
@@ -166,6 +183,8 @@ html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intr
   function apply(l){
     root.lang=l;
     T[l].p.forEach(function(t,i){ps[i].textContent=t});
+    var c=T[l].cta,cp=ps[3],a=document.createElement('a');a.href='mailto:hello@sohaib-aref.com';a.textContent=c[1];
+    cp.textContent='';cp.append(c[0],a,c[2]);
     if(window.__bioSplit)window.__bioSplit();
   }
   function menu(l){
@@ -194,6 +213,7 @@ html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intr
     set(b.dataset.loc);box.classList.remove('is-open');b.blur();
   });
   document.addEventListener('click',function(e){if(!box.contains(e.target))box.classList.remove('is-open')});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&(box.classList.contains('is-open')||box.contains(document.activeElement))){box.classList.remove('is-open');if(box.contains(document.activeElement))document.activeElement.blur()}});
 })();
 </script>
 
@@ -217,7 +237,7 @@ html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intr
     if(ar&&document.fonts&&!document.fonts.check(AR,'\u0628')){document.fonts.load(AR,'\u0628').then(split,function(){});C=[];return}
     C=[];
     var made=[];
-    bio.querySelectorAll('p').forEach(function(p){
+    bio.querySelectorAll('p:not(.cta)').forEach(function(p){
       var words=p.textContent.split(' ');p.textContent='';
       words.forEach(function(w,i){
         var wd=document.createElement('span');wd.className='wd';
@@ -258,7 +278,7 @@ html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intr
 </script>
 <script>
 (function(){
-  var n=0;function go(){if(++n===2)setTimeout(function(){import("./js/sym3d.js")},400)}
+  var n=0;function go(){if(++n===2)setTimeout(function(){import("./js/sym3d.js?v=6")},400)}
   addEventListener("load",go);
   if(document.documentElement.classList.contains("intro"))addEventListener("introdone",go);else go();
   // the Arabic font loads quietly so the switch to Gulf is instant
