@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://sohaib-aref.com/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<script>if(!matchMedia("(prefers-reduced-motion:reduce)").matches)document.documentElement.classList.add("intro")</script>
+<title>Creative Directing, a workshop by Sohaib Aref</title>
+<meta name="description" content="Creative Directing, a workshop by Sohaib Aref. Find the idea, make the decisions, lead the work to the last frame. Early access is open.">
+<link rel="canonical" href="https://sohaib-aref.com/creative-directing.html">
+<meta property="og:url" content="https://sohaib-aref.com/creative-directing.html">
+<meta property="og:title" content="Creative Directing, a workshop by Sohaib Aref">
+<meta property="og:description" content="Find the idea, make the decisions, lead the work to the last frame. Early access is open.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Course", "name": "Creative Directing", "description": "Creative direction is a series of decisions: why a piece exists, how it should feel, and the one choice that makes it work. I started as a VFX artist and grew into the role, so this workshop stays practical. We start from a brief, find the idea, write the treatment, then direct it through production and the edit.", "url": "https://sohaib-aref.com/creative-directing.html", "inLanguage": "en", "provider": {"@type": "Person", "name": "Sohaib Aref", "jobTitle": "Creative Director", "url": "https://sohaib-aref.com/"}}</script>
+<style>
+@font-face{font-family:Inter;src:url(fonts/inter-var.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Martian Mono";src:url(fonts/martian-mono-400.woff2) format("woff2");font-weight:400;font-display:swap}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{background:#000;color:#fff;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button{font:inherit}
+.page{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;padding:40px}
+.mono{font-family:"Martian Mono",ui-monospace,monospace;font-size:clamp(11px,.2vw + 8.2px,12px);letter-spacing:.02em;text-transform:uppercase;line-height:1.6}
+.dim{color:#8a8a8a}
+.txt{font-size:clamp(15px,.35vw + 11px,17px);line-height:1.6;color:#c9c9c9;text-wrap:pretty}
+a{color:#fff;text-decoration:none;border-bottom:1px solid #444;padding-bottom:2px;transition:border-color .3s,color .3s,background-color .3s}
+a:hover{border-color:#fff}
+a:focus-visible,button:focus-visible{outline:1px solid #fff;outline-offset:4px}
+.foot{margin-top:clamp(56px,7vw,112px)}
+.links{display:flex;gap:12px 24px;flex-wrap:wrap}
+.btn{display:inline-flex;justify-content:space-between;align-items:center;gap:28px;background:#fff;color:#000;border:1px solid #fff;padding:17px 20px;cursor:pointer;transition:background-color .35s,color .35s}
+.btn .arr{transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.btn:hover{background:transparent;color:#fff;border-color:#fff}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* the card: a calm black panel that fills white from the bottom on hover */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.2vw,20px)}
+.card{position:relative;isolation:isolate;display:flex;flex-direction:column;min-height:clamp(440px,36vw,600px);padding:clamp(20px,1.8vw,28px);background:#0a0a0a;border:1px solid #262626;color:#fff;overflow:hidden;transition:color .5s cubic-bezier(.65,0,.35,1),border-color .5s}
+.card::before{content:"";position:absolute;inset:0;z-index:-1;background:#fff;transform:scaleY(0);transform-origin:50% 100%;transition:transform .6s cubic-bezier(.65,0,.35,1)}
+.card:hover{color:#000;border-color:#fff}
+.card:hover::before{transform:scaleY(1)}
+.card__top{display:flex;justify-content:space-between;gap:16px;color:#8a8a8a;transition:color .5s}
+.card__num{font-weight:200;font-size:clamp(72px,7.4vw,136px);line-height:.8;letter-spacing:-.06em;color:#2c2c2c;margin:clamp(18px,1.6vw,26px) 0 0 -.06em;transition:color .5s}
+.card__title{font-weight:900;font-size:clamp(34px,3.5vw,64px);line-height:.88;letter-spacing:-.04em;text-transform:uppercase;margin:auto 0 clamp(14px,1.2vw,20px) -.04em;padding-top:40px}
+.card__pitch{min-height:2.7em;font-size:clamp(16px,.5vw + 11px,19px);line-height:1.35;font-weight:500;letter-spacing:-.01em;max-width:22em;color:#c9c9c9;transition:color .5s}
+.card__tags{display:flex;flex-wrap:wrap;gap:6px;margin:clamp(20px,2vw,32px) 0}
+.card__tags span{border:1px solid #333;padding:4px 9px;color:#bdbdbd;transition:border-color .5s,color .5s}
+.card__more{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #262626;padding-top:16px;transition:border-color .5s}
+.card__more .arr{transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.card:hover .card__top,.card:hover .card__pitch{color:#000}
+.card:hover .card__num{color:#d4d4d4}
+.card:hover .card__tags span{border-color:#000;color:#000}
+.card:hover .card__more{border-color:#000}
+.card:hover .card__more .arr{transform:translateX(6px)}
+.card--small{min-height:clamp(240px,20vw,320px)}
+.card--small .card__title{font-size:clamp(28px,2.6vw,44px)}
+.card--small .card__num{display:none}
+
+@keyframes focus{0%{opacity:0;filter:blur(var(--b));transform:translateY(var(--y,0)) scale(var(--s,1))}55%{opacity:1}100%{opacity:1;filter:blur(0);transform:none}}
+html.intro .reveal{opacity:0}
+html.intro .reveal.in{--b:10px;--y:24px;animation:focus 1.5s cubic-bezier(.22,1,.36,1) var(--d,0s) both}
+@media (max-width:960px){.cards{grid-template-columns:1fr}.card{min-height:380px}.card--small{min-height:0}}
+@media (max-width:810px){.page{padding:20px 20px 28px}}
+
+.top{display:flex;justify-content:space-between;gap:16px}
+.hero{padding:clamp(56px,8vw,140px) 0 clamp(48px,6vw,96px)}
+.kicker{display:flex;flex-wrap:wrap;gap:8px 28px;margin-bottom:clamp(20px,2.4vw,36px)}
+.title{font-weight:900;font-size:clamp(52px,11.2vw,210px);line-height:.84;letter-spacing:-.045em;text-transform:uppercase;margin-left:-.05em}
+.hero__row{display:flex;justify-content:space-between;align-items:flex-end;gap:32px 64px;flex-wrap:wrap;margin-top:clamp(28px,3.4vw,56px)}
+.pitch{font-size:clamp(22px,1.8vw + 6px,38px);font-weight:600;letter-spacing:-.025em;line-height:1.15;max-width:20em;text-wrap:balance}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 clamp(16px,2vw,32px);margin-top:clamp(40px,5vw,80px)}
+.facts div{border-top:1px solid #262626;padding-top:14px}
+.facts dt{color:#8a8a8a;margin-bottom:6px}
+.facts dd{font-size:clamp(12.5px,.2vw + 10.5px,14px);color:#fff}
+.sec{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:24px clamp(24px,3vw,56px);border-top:1px solid #262626;padding:clamp(18px,1.6vw,24px) 0 clamp(64px,8vw,128px)}
+.sec>.mono{padding-top:4px}
+.big{font-size:clamp(22px,1.7vw + 6px,36px);font-weight:600;letter-spacing:-.025em;line-height:1.2;max-width:22em;margin-bottom:24px;text-wrap:pretty}
+.sec .txt{max-width:40em}
+.learn{list-style:none;padding:0;counter-reset:l}
+.learn li{counter-increment:l;display:grid;grid-template-columns:4em minmax(0,1fr) minmax(0,1.3fr);gap:8px 24px;padding:20px 0;border-top:1px solid #1f1f1f}
+.learn li:last-child{border-bottom:1px solid #1f1f1f}
+.learn li::before{content:counter(l,decimal-leading-zero);font-family:"Martian Mono",ui-monospace,monospace;font-size:11px;color:#5f5f5f;padding-top:.5em}
+.learn b{font-size:clamp(18px,.6vw + 12px,22px);font-weight:600;letter-spacing:-.015em;line-height:1.25}
+.learn span{font-size:clamp(15px,.3vw + 12px,17px);line-height:1.5;color:#a8a8a8}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:40px clamp(24px,3vw,56px)}
+.pair .mono{margin-bottom:12px}
+.pair p.lg{font-size:clamp(18px,.8vw + 11px,24px);font-weight:500;letter-spacing:-.015em;line-height:1.35;color:#fff;text-wrap:pretty}
+.lead-by{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px clamp(24px,3vw,48px);align-items:end}
+.lead-by img{display:block;width:clamp(120px,12vw,180px);height:auto;aspect-ratio:13/15;object-fit:cover;object-position:50% 12%}
+.lead-by .txt{max-width:34em;margin-top:12px}
+.lead-by .who{font-size:clamp(20px,1vw + 12px,28px);font-weight:600;letter-spacing:-.02em}
+/* sign up */
+.join{background:#0a0a0a;border:1px solid #262626;padding:clamp(24px,3vw,56px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px clamp(32px,4vw,80px)}
+.join h2{font-size:clamp(34px,3.6vw,64px);font-weight:900;letter-spacing:-.04em;line-height:.9;text-transform:uppercase;margin:14px 0 20px -.04em}
+.join .txt{max-width:28em}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;align-content:start}
+.f{display:flex;flex-direction:column;gap:8px}
+.f--wide{grid-column:1/-1}
+.f label{color:#8a8a8a}
+.f input,.f select,.f textarea{font:inherit;font-size:16px;color:#fff;background:#000;border:1px solid #333;border-radius:0;padding:14px 14px;outline:none;transition:border-color .25s;-webkit-appearance:none;appearance:none}
+.f select{background-image:linear-gradient(45deg,transparent 50%,#8a8a8a 50%),linear-gradient(135deg,#8a8a8a 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:40px}
+.f textarea{min-height:96px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:#fff}
+.f input::placeholder,.f textarea::placeholder{color:#555}
+.f .err{color:#ff8a7a;font-size:13px;min-height:0}
+.f.bad input,.f.bad select{border-color:#ff8a7a}
+.check{grid-column:1/-1;display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.5;color:#a8a8a8;cursor:pointer}
+.check input{appearance:none;-webkit-appearance:none;flex:none;width:18px;height:18px;border:1px solid #444;margin-top:2px;background:#000;cursor:pointer;display:grid;place-content:center}
+.check input:checked{background:#fff;border-color:#fff}
+.check input:checked::after{content:"";width:9px;height:5px;border:2px solid #000;border-top:0;border-right:0;transform:translateY(-1px) rotate(-45deg)}
+.check.bad input{border-color:#ff8a7a}
+.send{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;margin-top:6px}
+.send .btn{min-width:260px}
+.send .btn[disabled]{opacity:.6;pointer-events:none}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.done{display:none;grid-column:1/-1;border:1px solid #333;padding:28px}
+.done h3{font-size:clamp(24px,1.6vw + 8px,34px);font-weight:600;letter-spacing:-.02em;margin:10px 0 10px}
+.sent form{display:none}.sent .done{display:block}
+.fail{display:none;color:#ff8a7a;font-size:14px;line-height:1.5}
+.failed .fail{display:block}
+.more{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.2vw,20px)}
+html.intro .hero>*{--b:12px;--y:18px;animation:focus 1.8s cubic-bezier(.22,1,.36,1) both paused}
+html.intro .hero .kicker{animation-delay:.05s}html.intro .hero .title{--b:.08em;--y:.1em;animation-delay:.12s}html.intro .hero .hero__row{animation-delay:.4s}html.intro .hero .facts{animation-delay:.55s}
+html.intro.go .hero>*{animation-play-state:running}
+@media (max-width:1000px){.join{grid-template-columns:1fr}.learn li{grid-template-columns:3em minmax(0,1fr)}.learn span{grid-column:2}}
+@media (max-width:810px){.facts{grid-template-columns:1fr 1fr;gap:20px 16px}.sec{grid-template-columns:1fr}.pair{grid-template-columns:1fr}.more{grid-template-columns:1fr}.hero{padding-top:56px}}
+@media (max-width:560px){form{grid-template-columns:1fr}.send .btn{width:100%;min-width:0}.lead-by{grid-template-columns:1fr}.lead-by img{width:140px}}
+</style>
+</head>
+<body>
+<main class="page">
+  <nav class="top mono" aria-label="Site"><a href="workshops.html"><span aria-hidden="true">←</span> All workshops</a><a href="index.html">Sohaib Aref</a></nav>
+
+  <header class="hero">
+    <p class="kicker mono"><span class="dim">Workshop 02</span><span>Early access open</span></p>
+    <h1 class="title">Creative<br>Directing</h1>
+    <div class="hero__row">
+      <p class="pitch">Find the idea, make the decisions, lead the work to the last frame.</p>
+      <a class="btn mono" href="#early-list">Join the early list<span class="arr" aria-hidden="true">↓</span></a>
+    </div>
+    <dl class="facts mono">
+      <div><dt>Status</dt><dd>Early access open</dd></div>
+      <div><dt>Dates</dt><dd>To be announced</dd></div>
+      <div><dt>Format</dt><dd>To be announced</dd></div>
+      <div><dt>Led by</dt><dd>Sohaib Aref</dd></div>
+    </dl>
+  </header>
+
+  <section class="sec reveal" aria-labelledby="about">
+    <p class="mono dim" id="about">About</p>
+    <div><p class="big">Creative direction is a series of decisions: why a piece exists, how it should feel, and the one choice that makes it work.</p><p class="txt">I started as a VFX artist and grew into the role, so this workshop stays practical. We start from a brief, find the idea, write the treatment, then direct it through production and the edit.</p></div>
+  </section>
+
+  <section class="sec reveal" aria-labelledby="learn">
+    <p class="mono dim" id="learn">You will learn</p>
+    <ol class="learn"><li><b>Reading the brief</b><span>Finding the idea behind what the brief asks for.</span></li><li><b>The treatment</b><span>Writing it, and building references that sell the idea before anything is made.</span></li><li><b>Setting the look</b><span>Deciding frame, colour, type and sound, and keeping them consistent.</span></li><li><b>Directing people</b><span>Giving direction and feedback that moves the work forward.</span></li><li><b>In the room</b><span>Presenting the idea and holding it through questions and changes.</span></li></ol>
+  </section>
+
+  <section class="sec reveal" aria-label="Who it is for and what you leave with">
+    <p class="mono dim">The fit</p>
+    <div class="pair">
+      <div><p class="mono dim">Who it’s for</p><p class="lg">Designers, motion artists, art directors and filmmakers stepping into creative direction.</p></div>
+      <div><p class="mono dim">You leave with</p><p class="lg">A treatment and a short piece you directed, from brief to final cut.</p></div>
+    </div>
+  </section>
+
+  <section class="sec reveal" aria-labelledby="led">
+    <p class="mono dim" id="led">Led by</p>
+    <div class="lead-by">
+      <picture><source type="image/webp" srcset="img/portrait-320.webp 320w, img/portrait-480.webp 480w" sizes="180px"><img src="img/portrait-480.jpg" width="1200" height="1499" alt="Portrait of Sohaib Aref" loading="lazy"></picture>
+      <div><p class="who">Sohaib Aref</p><p class="txt">I’m a creative director with a maker’s hands. Over 8 years in VFX, motion design and 3D, I’ve worked on more than 150 projects for 40+ brands across Türkiye, KSA and Europe.</p></div>
+    </div>
+  </section>
+
+  <section class="join reveal" id="early-list" aria-labelledby="join-h">
+    <div>
+      <p class="mono dim">Early list</p>
+      <h2 id="join-h">Join the<br>early list</h2>
+      <p class="txt">Dates, format and places go to this list first. I only write when there is news about Creative Directing.</p>
+    </div>
+    <div>
+      <form novalidate data-endpoint="https://sohaib-aref.netlify.app/" name="early-list">
+        <input type="hidden" name="form-name" value="early-list">
+        <input type="hidden" name="workshop" value="Creative Directing">
+        <p class="hp" aria-hidden="true"><label>Company <input name="company" tabindex="-1" autocomplete="off"></label></p>
+        <div class="f"><label class="mono" for="n">Name</label><input id="n" name="name" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
+        <div class="f"><label class="mono" for="m">Email</label><input id="m" name="email" type="email" autocomplete="email" inputmode="email" required><span class="err" aria-live="polite"></span></div>
+        <div class="f"><label class="mono" for="r">What you do</label><select id="r" name="role"><option value="" selected>Choose one</option><option>Designer</option><option>Motion designer</option><option>Art director</option><option>Creative director</option><option>Filmmaker or director</option><option>Editor</option><option>Marketer</option><option>Student</option><option>Other</option></select></div>
+        <div class="f"><label class="mono" for="c">City</label><input id="c" name="city" autocomplete="address-level2"></div>
+        <div class="f f--wide"><label class="mono" for="t">Anything I should know <span class="dim">(optional)</span></label><textarea id="t" name="note" rows="3"></textarea></div>
+        <label class="check"><input type="checkbox" name="consent" value="yes"><span>I’m happy to get emails about this workshop. My details are used only for this list, and I can ask to be removed at any time.</span></label>
+        <div class="send"><button class="btn mono" type="submit"><span class="lbl">Join the early list</span><span class="arr" aria-hidden="true">→</span></button><p class="fail" role="alert">That didn’t go through. Try again, or write to <a href="mailto:hello@sohaib-aref.com?subject=Early%20list%3A%20Creative%20Directing">hello@sohaib-aref.com</a>.</p></div>
+      </form>
+      <div class="done" role="status">
+        <p class="mono dim">You’re on the list</p>
+        <h3>Thank you. I’ll be in touch.</h3>
+        <p class="txt">When dates for Creative Directing are set, I’ll write to <span data-echo></span> first.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec reveal" aria-label="Other workshops" style="padding-bottom:0;margin-top:clamp(64px,8vw,128px)">
+    <p class="mono dim">Other workshops</p>
+    <div class="more"><a class="card card--small reveal" style="--d:0s" href="ai-video-production.html"><div class="card__top mono"><span>Workshop 01</span><span>Early access</span></div><h3 class="card__title">AI Video<br>Production</h3><p class="card__pitch">Make video with AI that still feels directed.</p><div class="card__more mono"><span>Read more</span><span class="arr" aria-hidden="true">→</span></div></a><a class="card card--small reveal" style="--d:0s" href="motion-design.html"><div class="card__top mono"><span>Workshop 03</span><span>Early access</span></div><h3 class="card__title">Motion<br>Design</h3><p class="card__pitch">Timing, type and craft that hold up frame by frame.</p><div class="card__more mono"><span>Read more</span><span class="arr" aria-hidden="true">→</span></div></a></div>
+  </section>
+
+  <footer class="foot"><p class="mono links"><a href="index.html">Home</a><a href="mailto:hello@sohaib-aref.com?subject=Workshops">hello@sohaib-aref.com</a><a href="https://www.instagram.com/sohaib_creative/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/sohaib-creative/" target="_blank" rel="noopener">LinkedIn</a></p></footer>
+</main>
+<script>
+(function(){
+  var h=document.documentElement,R=[].slice.call(document.querySelectorAll('.reveal'));
+  if(!h.classList.contains('intro'))return;
+  var d=false;function go(){if(d)return;d=true;requestAnimationFrame(function(){h.classList.add('go');watch()})}
+  // each block comes into focus once, as it enters the screen
+  function watch(){
+    if(!('IntersectionObserver' in window)){R.forEach(function(s){s.classList.add('in')});return}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    R.forEach(function(s){io.observe(s)});
+  }
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(go);setTimeout(go,1600);
+})();
+</script>
+<script>
+(function(){
+  var box=document.querySelector('.join'),f=box&&box.querySelector('form');if(!f)return;
+  var btn=f.querySelector('button[type=submit]'),label=btn.querySelector('.lbl');
+  function mark(el,on,msg){var w=el.closest('.f,.check');if(!w)return;w.classList.toggle('bad',on);var e=w.querySelector('.err');if(e)e.textContent=on?msg:''}
+  function check(){
+    var ok=true,first=null;
+    [['name','Please add your name.'],['email','Please add a valid email.']].forEach(function(p){
+      var el=f.elements[p[0]],bad=!el.value.trim()||(p[0]==='email'&&!el.checkValidity());mark(el,bad,p[1]);if(bad){ok=false;first=first||el}
+    });
+    var c=f.elements.consent;mark(c,!c.checked,'');if(!c.checked){ok=false;first=first||c}
+    if(first)first.focus();return ok;
+  }
+  f.addEventListener('input',function(e){if(e.target.closest('.bad'))mark(e.target,false,'')});
+  f.addEventListener('change',function(e){if(e.target.name==='consent'&&e.target.checked)mark(e.target,false,'')});
+  f.addEventListener('submit',function(e){
+    e.preventDefault();box.classList.remove('failed');
+    if(!check())return;
+    var data=new URLSearchParams(new FormData(f));
+    box.querySelector('[data-echo]').textContent=f.elements.email.value.trim();
+    // bots fill the hidden field; they get the same thank-you and nothing is sent
+    if(data.get('company')){box.classList.add('sent');return}
+    btn.disabled=true;label.textContent='Sending';
+    fetch(f.getAttribute('data-endpoint'),{method:'POST',mode:'no-cors',body:data}).then(function(){
+      box.classList.add('sent');box.scrollIntoView({block:'center'});
+    }).catch(function(){
+      box.classList.add('failed');btn.disabled=false;label.textContent='Join the early list';
+    });
+  });
+})();
+</script>
+</body>
+</html>
