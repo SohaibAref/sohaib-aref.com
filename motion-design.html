@@ -39,10 +39,18 @@ a:focus-visible,button:focus-visible{outline:1px solid #fff;outline-offset:4px}
 .foot{margin-top:clamp(56px,7vw,112px)}
 .links{display:flex;gap:12px 24px;flex-wrap:wrap}
 .btn{display:inline-flex;justify-content:space-between;align-items:center;gap:28px;background:#fff;color:#000;border:1px solid #fff;padding:17px 20px;cursor:pointer;transition:background-color .35s,color .35s}
-.btn .arr{transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.btn .arr{display:inline-flex;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.ico{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square;overflow:visible}
+/* the scroll cue: shows only when the next part of the page is still below the screen */
+.cue{position:fixed;right:40px;bottom:32px;z-index:40;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;background:rgba(0,0,0,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.28);cursor:pointer;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .6s,transform .7s cubic-bezier(.16,1,.3,1),background-color .3s,color .3s}
+.cue.on{opacity:1;transform:none;pointer-events:auto}
+.cue .ico{width:18px;height:18px;animation:cue 2s cubic-bezier(.65,0,.35,1) infinite}
+@keyframes cue{0%{transform:translateY(-6px);opacity:0}30%{opacity:1}70%{transform:translateY(4px);opacity:1}100%{transform:translateY(8px);opacity:0}}
 @media (hover:hover){
 .btn:hover{background:transparent;color:#fff;border-color:#fff}
 .btn:hover .arr{transform:translateX(4px)}
+.btn:hover .arr--d{transform:translateY(3px)}
+.cue:hover{background:#fff;color:#000;border-color:#fff}
 }
 
 /* the card: a calm black panel that fills white from the bottom on hover */
@@ -51,6 +59,7 @@ a:focus-visible,button:focus-visible{outline:1px solid #fff;outline-offset:4px}
 .card::before{content:"";position:absolute;inset:0;z-index:-1;background:#fff;transform:scaleY(0);transform-origin:50% 100%;transition:transform .6s cubic-bezier(.65,0,.35,1)}
 /* a quiet press state for touch */
 .card:active{border-color:#8a8a8a}
+.card:active .card__go{background:#fff;border-color:#fff;color:#000}
 @media (hover:hover){
 .card:hover{color:#000;border-color:#fff}
 .card:hover::before{transform:scaleY(1)}
@@ -59,16 +68,17 @@ a:focus-visible,button:focus-visible{outline:1px solid #fff;outline-offset:4px}
 .card__num{font-weight:200;font-size:clamp(72px,7.4vw,136px);line-height:.8;letter-spacing:-.06em;color:#2c2c2c;margin:clamp(18px,1.6vw,26px) 0 0 -.06em;transition:color .5s}
 .card__title{font-weight:900;font-size:clamp(34px,3.5vw,64px);line-height:.88;letter-spacing:-.04em;text-transform:uppercase;margin:auto 0 clamp(14px,1.2vw,20px) -.04em;padding-top:40px}
 .card__pitch{min-height:2.7em;font-size:clamp(16px,.5vw + 11px,19px);line-height:1.35;font-weight:500;letter-spacing:-.01em;max-width:22em;color:#c9c9c9;transition:color .5s}
-.card__tags{display:flex;flex-wrap:wrap;gap:6px;margin:clamp(20px,2vw,32px) 0}
+.card__tags{display:flex;flex-wrap:wrap;gap:6px}
+.card__foot{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-top:clamp(20px,2vw,32px)}
+.card__go{flex:none;margin-left:auto;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1px solid #3a3a3a;transition:background-color .5s,border-color .5s,color .5s}
+.card__go .ico{transition:transform .5s cubic-bezier(.16,1,.3,1)}
 .card__tags span{border:1px solid #333;padding:4px 9px;color:#bdbdbd;transition:border-color .5s,color .5s}
-.card__more{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #262626;padding-top:16px;transition:border-color .5s}
-.card__more .arr{transition:transform .5s cubic-bezier(.16,1,.3,1)}
 @media (hover:hover){
 .card:hover .card__top,.card:hover .card__pitch{color:#000}
 .card:hover .card__num{color:#d4d4d4}
 .card:hover .card__tags span{border-color:#000;color:#000}
-.card:hover .card__more{border-color:#000}
-.card:hover .card__more .arr{transform:translateX(6px)}
+.card:hover .card__go{background:#000;border-color:#000;color:#fff}
+.card:hover .card__go .ico{transform:translateX(3px)}
 }
 .card--small{min-height:clamp(240px,20vw,320px)}
 .card--small .card__title{font-size:clamp(28px,2.6vw,44px)}
@@ -84,7 +94,8 @@ a:focus-visible,button:focus-visible{outline:1px solid #fff;outline-offset:4px}
 .crumbs a,.crumbs__back,.bar__link{border:0;padding:8px 0;color:#8a8a8a}
 .crumbs a:hover,.crumbs__back:hover,.bar__link:hover{color:#fff}
 .crumbs [aria-current]{color:#fff}
-.crumbs__back{display:none;gap:8px}
+.crumbs__back{display:none;align-items:center;gap:8px}
+.crumbs__back .ico{width:14px;height:14px}
 .bar__cta{border:1px solid #fff;padding:9px 14px;background:#fff;color:#000;white-space:nowrap;transition:opacity .35s,background-color .3s,color .3s}
 @media (hover:hover){
 .bar__cta:hover{background:transparent;color:#fff;border-color:#fff}
@@ -100,6 +111,8 @@ html.intro .reveal.in{--b:10px;--y:24px;animation:focus 1.5s cubic-bezier(.22,1,
 @media (max-width:810px){.page{padding:20px 20px 28px}.bar__in{padding:0 20px;height:52px}.links a{padding:7px 0}}
 @media (max-width:640px){.bar--detail .crumbs{display:none}.bar--detail .crumbs__back{display:inline-flex}}
 @media (hover:none),(max-width:810px){html.intro .reveal.in{--b:0px;--y:14px;animation-duration:.8s;animation-delay:0s}html.intro .reveal.in .ws__title{animation:none}}
+@media (prefers-reduced-motion:reduce){.cue .ico,.board__wrap.nudge .board__nav--next .ico{animation:none}}
+@media (max-width:640px){.cue{right:20px;bottom:20px}}
 @media (max-width:600px){.card,.card:last-child:nth-child(odd),.card--small{min-height:0}.card__title{padding-top:26px}.card__num{margin-top:14px}}
 
 .top{display:flex;justify-content:space-between;gap:16px}
@@ -129,6 +142,9 @@ html.intro .reveal.in{--b:10px;--y:24px;animation:focus 1.5s cubic-bezier(.22,1,
 .lead-by{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px clamp(24px,3vw,48px);align-items:end}
 .lead-by img{display:block;width:clamp(120px,12vw,180px);height:auto;aspect-ratio:13/15;object-fit:cover;object-position:50% 12%}
 .lead-by .txt{max-width:34em;margin-top:12px}
+.go{display:inline-flex;align-items:center;gap:10px}
+.go .ico{width:14px;height:14px;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.go:hover .ico{transform:translateX(3px)}
 .lead-by .who{font-size:clamp(20px,1vw + 12px,28px);font-weight:600;letter-spacing:-.02em}
 /* films: muted loops that play only while on screen, never clickable */
 .films__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,3vw,48px) clamp(12px,1.2vw,20px);margin-top:clamp(8px,1vw,16px)}
@@ -146,9 +162,17 @@ html.intro .reveal.in{--b:10px;--y:24px;animation:focus 1.5s cubic-bezier(.22,1,
 .board{margin:0}
 .board__scroll{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#333 transparent}
 .board img{display:block;width:100%;min-width:980px;height:auto}
-.board figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;padding-top:12px;border-top:1px solid #1f1f1f;margin-top:10px}
-.board__hint{display:none}
-@media (max-width:810px){.films__grid{grid-template-columns:1fr}.board__hint{display:inline}}
+.board figcaption{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:4px 16px;padding-top:12px;border-top:1px solid #1f1f1f;margin-top:10px}
+.board__wrap{position:relative}
+.board__wrap::after{content:"";position:absolute;top:0;right:0;bottom:0;width:72px;background:linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,.6));opacity:0;transition:opacity .4s;pointer-events:none}
+.board__wrap.can-next::after{opacity:1}
+.board__nav{position:absolute;top:50%;z-index:1;width:48px;height:48px;margin-top:-24px;padding:0;border-radius:50%;display:grid;place-items:center;color:#fff;background:rgba(0,0,0,.6);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.3);cursor:pointer;transition:opacity .35s,background-color .3s,color .3s}
+.board__nav:disabled{opacity:0;pointer-events:none}
+.board__nav--prev{left:12px}.board__nav--next{right:12px}
+.board__wrap.nudge .board__nav--next .ico{animation:nudge 1.4s cubic-bezier(.65,0,.35,1) .3s 3}
+@keyframes nudge{0%,100%{transform:none}50%{transform:translateX(5px)}}
+@media (hover:hover){.board__nav:hover{background:#fff;color:#000;border-color:#fff}}
+@media (max-width:810px){.films__grid{grid-template-columns:1fr}}
 /* sign up */
 .join{background:#0a0a0a;border:1px solid #262626;padding:clamp(24px,3vw,56px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px clamp(32px,4vw,80px)}
 .join h2{font-size:clamp(34px,3.6vw,64px);font-weight:900;letter-spacing:-.04em;line-height:.9;text-transform:uppercase;margin:14px 0 20px -.04em}
@@ -188,7 +212,7 @@ html.intro.go .hero>*{animation-play-state:running}
 </style>
 </head>
 <body>
-<header class="bar bar--detail" data-bar><nav class="bar__in mono" aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Sohaib Aref</a></li><li><a href="workshops.html">Workshops</a></li><li><span aria-current="page">Motion Design</span></li></ol><a class="crumbs__back" href="workshops.html"><span aria-hidden="true">←</span>All workshops</a><a class="bar__cta" href="#early-list" data-scroll>Join the early list</a></nav></header>
+<header class="bar bar--detail" data-bar><nav class="bar__in mono" aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Sohaib Aref</a></li><li><a href="workshops.html">Workshops</a></li><li><span aria-current="page">Motion Design</span></li></ol><a class="crumbs__back" href="workshops.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 12h-16M10.5 6l-6 6 6 6"/></svg>All workshops</a><a class="bar__cta" href="#early-list" data-scroll>Join the early list</a></nav></header>
 <main class="page">
 
   <header class="hero">
@@ -196,7 +220,7 @@ html.intro.go .hero>*{animation-play-state:running}
     <h1 class="title">Motion<br>Design</h1>
     <div class="hero__row">
       <p class="pitch">Timing, type and craft that hold up frame by frame.</p>
-      <a class="btn mono" href="#early-list" data-scroll>Join the early list<span class="arr" aria-hidden="true">↓</span></a>
+      <a class="btn mono" href="#early-list" data-scroll>Join the early list<span class="arr arr--d"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.5v16M6 13.5l6 6 6-6"/></svg></span></a>
     </div>
     <dl class="facts mono">
       <div><dt>Status</dt><dd>Early access open</dd></div>
@@ -249,24 +273,25 @@ html.intro.go .hero>*{animation-play-state:running}
         <div class="f"><label class="mono" for="c">City</label><input id="c" name="city" autocomplete="address-level2"></div>
         <div class="f f--wide"><label class="mono" for="t">Anything I should know <span class="dim">(optional)</span></label><textarea id="t" name="note" rows="3"></textarea></div>
         <label class="check"><input type="checkbox" name="consent" value="yes"><span>I’m happy to get emails about this workshop. My details are used only for this list, and I can ask to be removed at any time.</span></label>
-        <div class="send"><button class="btn mono" type="submit"><span class="lbl">Join the early list</span><span class="arr" aria-hidden="true">→</span></button><p class="fail" role="alert">That didn’t go through. Try again, or write to <a href="mailto:hello@sohaib-aref.com?subject=Early%20list%3A%20Motion%20Design">hello@sohaib-aref.com</a>.</p></div>
+        <div class="send"><button class="btn mono" type="submit"><span class="lbl">Join the early list</span><span class="arr"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 12h16M13.5 6l6 6-6 6"/></svg></span></button><p class="fail" role="alert">That didn’t go through. Try again, or write to <a href="mailto:hello@sohaib-aref.com?subject=Early%20list%3A%20Motion%20Design">hello@sohaib-aref.com</a>.</p></div>
       </form>
       <div class="done" role="status">
         <p class="mono dim">You’re on the list</p>
         <h3>Thank you. I’ll be in touch.</h3>
         <p class="txt">When dates for Motion Design are set, I’ll write to <span data-echo></span> first.</p>
-        <p class="mono" style="margin-top:22px"><a href="workshops.html">See all workshops</a></p>
+        <p class="mono" style="margin-top:22px"><a class="go" href="workshops.html">All workshops<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 12h16M13.5 6l6 6-6 6"/></svg></a></p>
       </div>
     </div>
   </section>
 
   <section class="sec reveal" aria-label="Other workshops" style="padding-bottom:0;margin-top:clamp(64px,8vw,128px)">
-    <div><p class="mono dim">Other workshops</p><p class="mono" style="margin-top:14px"><a href="workshops.html">All workshops <span aria-hidden="true">→</span></a></p></div>
-    <div class="more"><a class="card card--small reveal" style="--d:0s" href="ai-video-production.html"><div class="card__top mono"><span>Workshop 01</span><span>Early access</span></div><h3 class="card__title">AI Video<br>Production</h3><p class="card__pitch">Make video with AI that still feels directed.</p><div class="card__more mono"><span>Read more</span><span class="arr" aria-hidden="true">→</span></div></a><a class="card card--small reveal" style="--d:0s" href="creative-directing.html"><div class="card__top mono"><span>Workshop 02</span><span>Early access</span></div><h3 class="card__title">Creative<br>Directing</h3><p class="card__pitch">Find the idea, make the decisions, lead the work to the last frame.</p><div class="card__more mono"><span>Read more</span><span class="arr" aria-hidden="true">→</span></div></a></div>
+    <div><p class="mono dim">Other workshops</p><p class="mono" style="margin-top:14px"><a class="go" href="workshops.html">All workshops<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 12h16M13.5 6l6 6-6 6"/></svg></a></p></div>
+    <div class="more"><a class="card card--small reveal" style="--d:0s" href="ai-video-production.html"><div class="card__top mono"><span>Workshop 01</span><span>Early access</span></div><h3 class="card__title">AI Video<br>Production</h3><p class="card__pitch">Make video with AI that still feels directed.</p><div class="card__foot"><span class="card__go"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 12h16M13.5 6l6 6-6 6"/></svg></span></div></a><a class="card card--small reveal" style="--d:0s" href="creative-directing.html"><div class="card__top mono"><span>Workshop 02</span><span>Early access</span></div><h3 class="card__title">Creative<br>Directing</h3><p class="card__pitch">Find the idea, make the decisions, lead the work to the last frame.</p><div class="card__foot"><span class="card__go"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 12h16M13.5 6l6 6-6 6"/></svg></span></div></a></div>
   </section>
 
   <footer class="foot"><p class="mono links"><a href="index.html">Home</a><a href="mailto:hello@sohaib-aref.com?subject=Workshops">hello@sohaib-aref.com</a><a href="https://www.instagram.com/sohaib_creative/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/sohaib-creative/" target="_blank" rel="noopener">LinkedIn</a></p></footer>
 </main>
+<div class="cue" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.5v16M6 13.5l6 6 6-6"/></svg></div>
 <script>
 (function(){
   var bar=document.querySelector('[data-bar]');if(!bar)return;
@@ -333,5 +358,26 @@ html.intro.go .hero>*{animation-play-state:running}
 })();
 </script>
 
+
+<script>
+(function(){
+  var c=document.querySelector('.cue');if(!c)return;
+  var main=document.querySelector('main'),bar=document.querySelector('[data-bar]'),reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,gone=false;
+  // the next block of the page that starts below the first third of the screen
+  function next(){var k=main.children;for(var i=0;i<k.length;i++){var r=k[i].getBoundingClientRect();if(r.height&&r.top>innerHeight*.35)return k[i]}return null}
+  function hide(){gone=true;c.classList.remove('on');removeEventListener('scroll',onS)}
+  function onS(){if(scrollY>40)hide()}
+  addEventListener('scroll',onS,{passive:true});
+  setTimeout(function(){
+    if(gone||scrollY>40)return;var n=next();
+    // only when the next part is still mostly below the screen
+    if(n&&n.getBoundingClientRect().top>innerHeight*.62)c.classList.add('on');
+  },1400);
+  c.addEventListener('click',function(){
+    var n=next(),y=n?n.getBoundingClientRect().top+scrollY-(bar?bar.offsetHeight:0)-12:scrollY+innerHeight*.85;
+    scrollTo({top:y,behavior:reduce?'auto':'smooth'});hide();
+  });
+})();
+</script>
 </body>
 </html>
