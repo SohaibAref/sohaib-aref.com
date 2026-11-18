@@ -276,7 +276,7 @@ html.intro.go .hero>*{animation-play-state:running}
       <p class="txt">Dates, format and places go to this list first. I only write when there is news about AI Video Production.</p>
     </div>
     <div>
-      <form novalidate data-endpoint="https://sohaib-aref.netlify.app/" data-kit="10207646" name="early-list">
+      <form novalidate data-endpoint="https://sohaib-aref.netlify.app/" data-kit="10207646" data-slug="ai-video-production" name="early-list">
         <input type="hidden" name="form-name" value="early-list">
         <input type="hidden" name="workshop" value="AI Video Production">
         <p class="hp" aria-hidden="true"><label>Company <input name="company" tabindex="-1" autocomplete="off"></label></p>
@@ -368,8 +368,15 @@ html.intro.go .hero>*{animation-play-state:running}
     var toKit=kit?fetch('https://app.kit.com/forms/'+kit+'/subscriptions',{method:'POST',headers:{Accept:'application/json'},body:kd}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(j){if(j&&j.status&&j.status!=='success')throw new Error(j.status)}):Promise.reject(new Error('off'));
     var toNet=fetch(f.getAttribute('data-endpoint'),{method:'POST',mode:'no-cors',body:data});
     Promise.allSettled([toKit,toNet]).then(function(r){
-      if(r[0].status==='fulfilled')box.classList.add('kit');
-      if(r[0].status==='fulfilled'||r[1].status==='fulfilled'){box.classList.add('sent');box.scrollIntoView({block:'center'});return}
+      var kitOk=r[0].status==='fulfilled';
+      if(kitOk)box.classList.add('kit');
+      if(kitOk||r[1].status==='fulfilled'){
+        box.classList.add('sent');
+        var slug=f.getAttribute('data-slug');
+        try{sessionStorage.setItem('earlyList',JSON.stringify({e:f.elements.email.value.trim(),w:slug,k:kitOk}))}catch(err){}
+        location.assign('joined.html?w='+encodeURIComponent(slug)+(kitOk?'':'&s=saved'));
+        return;
+      }
       box.classList.add('failed');btn.disabled=false;label.textContent='Join the early list';
     });
   });
