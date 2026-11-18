@@ -63,34 +63,52 @@ a:focus-visible,button:focus-visible{outline:1px solid #fff;outline-offset:4px}
 .card--small .card__title{font-size:clamp(28px,2.6vw,44px)}
 .card--small .card__num{display:none}
 
+/* one slim bar on every workshop page: where you are, and the way back */
+.bar{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.8);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s;view-transition-name:bar}
+.bar.scrolled{border-bottom-color:#1f1f1f}
+.bar__in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px;padding:0 40px}
+.crumbs{display:flex;align-items:center;list-style:none;padding:0;min-width:0}
+.crumbs li{display:flex;align-items:center;white-space:nowrap}
+.crumbs li+li::before{content:"/";color:#3d3d3d;margin:0 12px}
+.crumbs a,.crumbs__back,.bar__link{border:0;padding:8px 0;color:#8a8a8a}
+.crumbs a:hover,.crumbs__back:hover,.bar__link:hover{color:#fff}
+.crumbs [aria-current]{color:#fff}
+.crumbs__back{display:none;gap:8px}
+.bar__cta{border:1px solid #fff;padding:9px 14px;background:#fff;color:#000;white-space:nowrap;transition:opacity .35s,background-color .3s,color .3s}
+.bar__cta:hover{background:transparent;color:#fff;border-color:#fff}
+.bar__cta.off{opacity:0;pointer-events:none}
+@view-transition{navigation:auto}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.32s}
 @keyframes focus{0%{opacity:0;filter:blur(var(--b));transform:translateY(var(--y,0)) scale(var(--s,1))}55%{opacity:1}100%{opacity:1;filter:blur(0);transform:none}}
 html.intro .reveal{opacity:0}
 html.intro .reveal.in{--b:10px;--y:24px;animation:focus 1.5s cubic-bezier(.22,1,.36,1) var(--d,0s) both}
 @media (max-width:960px){.cards{grid-template-columns:1fr}.card{min-height:380px}.card--small{min-height:0}}
-@media (max-width:810px){.page{padding:20px 20px 28px}}
+@media (max-width:810px){.page{padding:20px 20px 28px}.bar__in{padding:0 20px;height:52px}.links a{padding:7px 0}}
+@media (max-width:640px){.bar--detail .crumbs{display:none}.bar--detail .crumbs__back{display:inline-flex}}
 
 .mark{font-weight:900;font-size:13.6vw;line-height:.8;letter-spacing:-.035em;text-transform:uppercase;white-space:nowrap;margin-left:-.04em;padding-top:.06em}
-.intro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 40px;align-items:end;margin:clamp(40px,5vw,80px) 0 clamp(36px,4vw,64px)}
-.intro .mono{margin-bottom:14px}
+.lede{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 40px;align-items:end;margin:clamp(40px,5vw,80px) 0 clamp(36px,4vw,64px)}
+.lede .mono{margin-bottom:14px}
 .lead{font-size:clamp(22px,1.7vw + 6px,34px);font-weight:600;letter-spacing:-.025em;line-height:1.15;max-width:18em;margin-bottom:16px;text-wrap:balance}
-.intro .txt{max-width:34em}
+.lede .txt{max-width:34em}
 .closing{border-top:1px solid #262626;margin-top:clamp(56px,7vw,112px);padding-top:20px;display:flex;flex-wrap:wrap;gap:12px 40px;justify-content:space-between;align-items:baseline}
 html.intro .mark>span{display:inline-block;--b:.1em;--s:1.04;animation:focus 2s cubic-bezier(.22,1,.36,1) .05s both paused}
-html.intro .intro{--b:9px;--y:14px;animation:focus 1.7s cubic-bezier(.22,1,.36,1) .4s both paused}
-html.intro.go .mark>span,html.intro.go .intro{animation-play-state:running}
-@media (max-width:810px){.intro{grid-template-columns:1fr;margin:36px 0 32px}}
+html.intro .lede{--b:9px;--y:14px;animation:focus 1.7s cubic-bezier(.22,1,.36,1) .4s both paused}
+html.intro.go .mark>span,html.intro.go .lede{animation-play-state:running}
+@media (max-width:810px){.lede{grid-template-columns:1fr;margin:36px 0 32px}}
 </style>
 </head>
 <body>
+<header class="bar" data-bar><nav class="bar__in mono" aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Sohaib Aref</a></li><li><span aria-current="page">Workshops</span></li></ol><a class="bar__link" href="mailto:hello@sohaib-aref.com?subject=Workshops">Contact</a></nav></header>
 <main class="page">
   <h1 class="mark"><span data-fit>Workshops</span></h1>
-  <section class="intro">
+  <section class="lede">
     <div>
       <p class="mono dim">Early access</p>
-      <p class="lead">Three workshops, built from how I work.</p>
-      <p class="txt">Open one to see what it covers, then join its early list. Dates, format and places go to the list first.</p>
+      <p class="lead">Workshops, built from how I work.</p>
+      <p class="txt">Open a workshop to see what it covers, then join its early list. Dates, format and places go to the list first.</p>
     </div>
-    <p class="mono dim">03 workshops</p>
+    <p class="mono dim">More on the way</p>
   </section>
   <section class="cards" aria-label="Workshops">
     <a class="card reveal" style="--d:0.5s" href="ai-video-production.html"><div class="card__top mono"><span>Workshop 01</span><span>Early access</span></div><p class="card__num" aria-hidden="true">01</p><h2 class="card__title">AI Video<br>Production</h2><p class="card__pitch">Make video with AI that still feels directed.</p><div class="card__tags mono" aria-label="Covers"><span>Idea</span><span>Look</span><span>Shots</span><span>Finish</span></div><div class="card__more mono"><span>Read more</span><span class="arr" aria-hidden="true">→</span></div></a><a class="card reveal" style="--d:0.62s" href="creative-directing.html"><div class="card__top mono"><span>Workshop 02</span><span>Early access</span></div><p class="card__num" aria-hidden="true">02</p><h2 class="card__title">Creative<br>Directing</h2><p class="card__pitch">Find the idea, make the decisions, lead the work to the last frame.</p><div class="card__tags mono" aria-label="Covers"><span>Brief</span><span>Treatment</span><span>Look</span><span>Direction</span></div><div class="card__more mono"><span>Read more</span><span class="arr" aria-hidden="true">→</span></div></a><a class="card reveal" style="--d:0.74s" href="motion-design.html"><div class="card__top mono"><span>Workshop 03</span><span>Early access</span></div><p class="card__num" aria-hidden="true">03</p><h2 class="card__title">Motion<br>Design</h2><p class="card__pitch">Timing, type and craft that hold up frame by frame.</p><div class="card__tags mono" aria-label="Covers"><span>Frames</span><span>Timing</span><span>Type</span><span>Delivery</span></div><div class="card__more mono"><span>Read more</span><span class="arr" aria-hidden="true">→</span></div></a>
@@ -106,12 +124,32 @@ html.intro.go .mark>span,html.intro.go .intro{animation-play-state:running}
   var el=document.querySelector('[data-fit]'),box=el.parentNode;
   function fit(){
     box.style.fontSize='100px';
-    var cs=getComputedStyle(box.parentNode),w=box.parentNode.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight),r=document.createRange();
-    r.selectNodeContents(el);
-    box.style.fontSize=Math.min(100*w/r.getBoundingClientRect().width*0.995,innerHeight*0.42)+'px';
+    // layout width, not the on-screen box: the intro scales the word while it measures
+    var cs=getComputedStyle(box.parentNode),w=box.parentNode.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+    box.style.fontSize=Math.min(100*w/el.offsetWidth*0.995,innerHeight*0.42)+'px';
   }
   fit();addEventListener('resize',fit);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+(function(){
+  var bar=document.querySelector('[data-bar]');if(!bar)return;
+  function s(){bar.classList.toggle('scrolled',scrollY>8)}s();addEventListener('scroll',s,{passive:true});
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,fine=matchMedia('(pointer:fine)').matches;
+  // jump to the sign-up without adding a step to the history, so Back always leaves the page
+  [].forEach.call(document.querySelectorAll('[data-scroll]'),function(a){a.addEventListener('click',function(e){
+    var t=document.querySelector(a.getAttribute('href'));if(!t)return;e.preventDefault();
+    t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+    var f=fine&&t.querySelector('input[name=name]');if(f)setTimeout(function(){f.focus({preventScroll:true})},reduce?0:700);
+  })});
+  // the bar's button steps aside while the page's own button or the form is on screen
+  var cta=bar.querySelector('.bar__cta'),form=document.getElementById('early-list'),hero=document.querySelector('.hero .btn');
+  if(cta&&form&&hero&&'IntersectionObserver' in window){
+    var v={};cta.classList.add('off');
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){v[e.target===form?'f':'h']=e.isIntersecting});cta.classList.toggle('off',!!(v.f||v.h))});
+    io.observe(form);io.observe(hero);
+  }
 })();
 </script>
 <script>

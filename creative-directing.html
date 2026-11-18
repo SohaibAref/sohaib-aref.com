@@ -18,6 +18,7 @@
 <meta property="og:title" content="Creative Directing, a workshop by Sohaib Aref">
 <meta property="og:description" content="Find the idea, make the decisions, lead the work to the last frame. Early access is open.">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Course", "name": "Creative Directing", "description": "Creative direction is a series of decisions: why a piece exists, how it should feel, and the one choice that makes it work. I started as a VFX artist and grew into the role, so this workshop stays practical. We start from a brief, find the idea, write the treatment, then direct it through production and the edit.", "url": "https://sohaib-aref.com/creative-directing.html", "inLanguage": "en", "provider": {"@type": "Person", "name": "Sohaib Aref", "jobTitle": "Creative Director", "url": "https://sohaib-aref.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sohaib Aref", "item": "https://sohaib-aref.com/"}, {"@type": "ListItem", "position": 2, "name": "Workshops", "item": "https://sohaib-aref.com/workshops.html"}, {"@type": "ListItem", "position": 3, "name": "Creative Directing", "item": "https://sohaib-aref.com/creative-directing.html"}]}</script>
 <style>
 @font-face{font-family:Inter;src:url(fonts/inter-var.woff2) format("woff2");font-weight:100 900;font-display:swap}
 @font-face{font-family:"Martian Mono";src:url(fonts/martian-mono-400.woff2) format("woff2");font-weight:400;font-display:swap}
@@ -63,14 +64,32 @@ a:focus-visible,button:focus-visible{outline:1px solid #fff;outline-offset:4px}
 .card--small .card__title{font-size:clamp(28px,2.6vw,44px)}
 .card--small .card__num{display:none}
 
+/* one slim bar on every workshop page: where you are, and the way back */
+.bar{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.8);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s;view-transition-name:bar}
+.bar.scrolled{border-bottom-color:#1f1f1f}
+.bar__in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px;padding:0 40px}
+.crumbs{display:flex;align-items:center;list-style:none;padding:0;min-width:0}
+.crumbs li{display:flex;align-items:center;white-space:nowrap}
+.crumbs li+li::before{content:"/";color:#3d3d3d;margin:0 12px}
+.crumbs a,.crumbs__back,.bar__link{border:0;padding:8px 0;color:#8a8a8a}
+.crumbs a:hover,.crumbs__back:hover,.bar__link:hover{color:#fff}
+.crumbs [aria-current]{color:#fff}
+.crumbs__back{display:none;gap:8px}
+.bar__cta{border:1px solid #fff;padding:9px 14px;background:#fff;color:#000;white-space:nowrap;transition:opacity .35s,background-color .3s,color .3s}
+.bar__cta:hover{background:transparent;color:#fff;border-color:#fff}
+.bar__cta.off{opacity:0;pointer-events:none}
+@view-transition{navigation:auto}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.32s}
 @keyframes focus{0%{opacity:0;filter:blur(var(--b));transform:translateY(var(--y,0)) scale(var(--s,1))}55%{opacity:1}100%{opacity:1;filter:blur(0);transform:none}}
 html.intro .reveal{opacity:0}
 html.intro .reveal.in{--b:10px;--y:24px;animation:focus 1.5s cubic-bezier(.22,1,.36,1) var(--d,0s) both}
 @media (max-width:960px){.cards{grid-template-columns:1fr}.card{min-height:380px}.card--small{min-height:0}}
-@media (max-width:810px){.page{padding:20px 20px 28px}}
+@media (max-width:810px){.page{padding:20px 20px 28px}.bar__in{padding:0 20px;height:52px}.links a{padding:7px 0}}
+@media (max-width:640px){.bar--detail .crumbs{display:none}.bar--detail .crumbs__back{display:inline-flex}}
 
 .top{display:flex;justify-content:space-between;gap:16px}
-.hero{padding:clamp(56px,8vw,140px) 0 clamp(48px,6vw,96px)}
+.hero{padding:clamp(24px,5vw,96px) 0 clamp(48px,6vw,96px)}
+.join{scroll-margin-top:76px}
 .kicker{display:flex;flex-wrap:wrap;gap:8px 28px;margin-bottom:clamp(20px,2.4vw,36px)}
 .title{font-weight:900;font-size:clamp(52px,11.2vw,210px);line-height:.84;letter-spacing:-.045em;text-transform:uppercase;margin-left:-.05em}
 .hero__row{display:flex;justify-content:space-between;align-items:flex-end;gap:32px 64px;flex-wrap:wrap;margin-top:clamp(28px,3.4vw,56px)}
@@ -130,20 +149,20 @@ html.intro .hero>*{--b:12px;--y:18px;animation:focus 1.8s cubic-bezier(.22,1,.36
 html.intro .hero .kicker{animation-delay:.05s}html.intro .hero .title{--b:.08em;--y:.1em;animation-delay:.12s}html.intro .hero .hero__row{animation-delay:.4s}html.intro .hero .facts{animation-delay:.55s}
 html.intro.go .hero>*{animation-play-state:running}
 @media (max-width:1000px){.join{grid-template-columns:1fr}.learn li{grid-template-columns:3em minmax(0,1fr)}.learn span{grid-column:2}}
-@media (max-width:810px){.facts{grid-template-columns:1fr 1fr;gap:20px 16px}.sec{grid-template-columns:1fr}.pair{grid-template-columns:1fr}.more{grid-template-columns:1fr}.hero{padding-top:56px}}
+@media (max-width:810px){.facts{grid-template-columns:1fr 1fr;gap:20px 16px}.sec{grid-template-columns:1fr}.pair{grid-template-columns:1fr}.more{grid-template-columns:1fr}.hero{padding-top:28px}}
 @media (max-width:560px){form{grid-template-columns:1fr}.send .btn{width:100%;min-width:0}.lead-by{grid-template-columns:1fr}.lead-by img{width:140px}}
 </style>
 </head>
 <body>
+<header class="bar bar--detail" data-bar><nav class="bar__in mono" aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Sohaib Aref</a></li><li><a href="workshops.html">Workshops</a></li><li><span aria-current="page">Creative Directing</span></li></ol><a class="crumbs__back" href="workshops.html"><span aria-hidden="true">←</span>All workshops</a><a class="bar__cta" href="#early-list" data-scroll>Join the early list</a></nav></header>
 <main class="page">
-  <nav class="top mono" aria-label="Site"><a href="workshops.html"><span aria-hidden="true">←</span> All workshops</a><a href="index.html">Sohaib Aref</a></nav>
 
   <header class="hero">
     <p class="kicker mono"><span class="dim">Workshop 02</span><span>Early access open</span></p>
     <h1 class="title">Creative<br>Directing</h1>
     <div class="hero__row">
       <p class="pitch">Find the idea, make the decisions, lead the work to the last frame.</p>
-      <a class="btn mono" href="#early-list">Join the early list<span class="arr" aria-hidden="true">↓</span></a>
+      <a class="btn mono" href="#early-list" data-scroll>Join the early list<span class="arr" aria-hidden="true">↓</span></a>
     </div>
     <dl class="facts mono">
       <div><dt>Status</dt><dd>Early access open</dd></div>
@@ -202,17 +221,38 @@ html.intro.go .hero>*{animation-play-state:running}
         <p class="mono dim">You’re on the list</p>
         <h3>Thank you. I’ll be in touch.</h3>
         <p class="txt">When dates for Creative Directing are set, I’ll write to <span data-echo></span> first.</p>
+        <p class="mono" style="margin-top:22px"><a href="workshops.html">See all workshops</a></p>
       </div>
     </div>
   </section>
 
   <section class="sec reveal" aria-label="Other workshops" style="padding-bottom:0;margin-top:clamp(64px,8vw,128px)">
-    <p class="mono dim">Other workshops</p>
+    <div><p class="mono dim">Other workshops</p><p class="mono" style="margin-top:14px"><a href="workshops.html">All workshops <span aria-hidden="true">→</span></a></p></div>
     <div class="more"><a class="card card--small reveal" style="--d:0s" href="ai-video-production.html"><div class="card__top mono"><span>Workshop 01</span><span>Early access</span></div><h3 class="card__title">AI Video<br>Production</h3><p class="card__pitch">Make video with AI that still feels directed.</p><div class="card__more mono"><span>Read more</span><span class="arr" aria-hidden="true">→</span></div></a><a class="card card--small reveal" style="--d:0s" href="motion-design.html"><div class="card__top mono"><span>Workshop 03</span><span>Early access</span></div><h3 class="card__title">Motion<br>Design</h3><p class="card__pitch">Timing, type and craft that hold up frame by frame.</p><div class="card__more mono"><span>Read more</span><span class="arr" aria-hidden="true">→</span></div></a></div>
   </section>
 
   <footer class="foot"><p class="mono links"><a href="index.html">Home</a><a href="mailto:hello@sohaib-aref.com?subject=Workshops">hello@sohaib-aref.com</a><a href="https://www.instagram.com/sohaib_creative/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/sohaib-creative/" target="_blank" rel="noopener">LinkedIn</a></p></footer>
 </main>
+<script>
+(function(){
+  var bar=document.querySelector('[data-bar]');if(!bar)return;
+  function s(){bar.classList.toggle('scrolled',scrollY>8)}s();addEventListener('scroll',s,{passive:true});
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,fine=matchMedia('(pointer:fine)').matches;
+  // jump to the sign-up without adding a step to the history, so Back always leaves the page
+  [].forEach.call(document.querySelectorAll('[data-scroll]'),function(a){a.addEventListener('click',function(e){
+    var t=document.querySelector(a.getAttribute('href'));if(!t)return;e.preventDefault();
+    t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+    var f=fine&&t.querySelector('input[name=name]');if(f)setTimeout(function(){f.focus({preventScroll:true})},reduce?0:700);
+  })});
+  // the bar's button steps aside while the page's own button or the form is on screen
+  var cta=bar.querySelector('.bar__cta'),form=document.getElementById('early-list'),hero=document.querySelector('.hero .btn');
+  if(cta&&form&&hero&&'IntersectionObserver' in window){
+    var v={};cta.classList.add('off');
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){v[e.target===form?'f':'h']=e.isIntersecting});cta.classList.toggle('off',!!(v.f||v.h))});
+    io.observe(form);io.observe(hero);
+  }
+})();
+</script>
 <script>
 (function(){
   var h=document.documentElement,R=[].slice.call(document.querySelectorAll('.reveal'));

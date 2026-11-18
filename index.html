@@ -33,6 +33,8 @@ body{background:#000;color:#fff;font-family:Inter,system-ui,sans-serif;-webkit-f
 .l{position:relative;display:inline-block}
 .g{display:inline-block;backface-visibility:hidden;will-change:transform}
 .sym3d{position:absolute;pointer-events:none;z-index:2}
+@view-transition{navigation:auto}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.32s}
 .low{display:flex;justify-content:space-between;align-items:center;gap:clamp(40px,6vw,120px);margin:auto 0;padding:clamp(28px,3.5vw,56px) 0}
 .bio{font-size:clamp(15px,.9vw + 5px,21px);max-width:40em}
 .bio p{line-height:1.55;color:#c9c9c9;text-wrap:pretty}
