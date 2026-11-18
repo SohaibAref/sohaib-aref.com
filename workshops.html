@@ -24,6 +24,8 @@
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
 html,body{overflow-x:clip}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{-webkit-tap-highlight-color:transparent}
 body{background:#000;color:#fff;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 button{font:inherit}
 .page{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;padding:40px}
@@ -96,6 +98,8 @@ html.intro .reveal.in{--b:10px;--y:24px;animation:focus 1.5s cubic-bezier(.22,1,
 @media (max-width:600px){.cards{grid-template-columns:minmax(0,1fr)}.card{min-height:360px}.card:last-child:nth-child(odd){min-height:360px}}
 @media (max-width:810px){.page{padding:20px 20px 28px}.bar__in{padding:0 20px;height:52px}.links a{padding:7px 0}}
 @media (max-width:640px){.bar--detail .crumbs{display:none}.bar--detail .crumbs__back{display:inline-flex}}
+@media (hover:none),(max-width:810px){html.intro .reveal.in{--b:0px;--y:14px;animation-duration:.8s;animation-delay:0s}html.intro .reveal.in .ws__title{animation:none}}
+@media (max-width:600px){.card,.card:last-child:nth-child(odd),.card--small{min-height:0}.card__title{padding-top:26px}.card__num{margin-top:14px}}
 
 .mark{font-weight:900;font-size:13.6vw;line-height:.8;letter-spacing:-.035em;text-transform:uppercase;white-space:nowrap;margin-left:-.04em;padding-top:.06em}
 .lede{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 40px;align-items:end;margin:clamp(40px,5vw,80px) 0 clamp(36px,4vw,64px)}

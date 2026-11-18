@@ -25,6 +25,8 @@
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
 html,body{overflow-x:clip}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{-webkit-tap-highlight-color:transparent}
 body{background:#000;color:#fff;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 button{font:inherit}
 .page{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;padding:40px}
@@ -97,6 +99,8 @@ html.intro .reveal.in{--b:10px;--y:24px;animation:focus 1.5s cubic-bezier(.22,1,
 @media (max-width:600px){.cards{grid-template-columns:minmax(0,1fr)}.card{min-height:360px}.card:last-child:nth-child(odd){min-height:360px}}
 @media (max-width:810px){.page{padding:20px 20px 28px}.bar__in{padding:0 20px;height:52px}.links a{padding:7px 0}}
 @media (max-width:640px){.bar--detail .crumbs{display:none}.bar--detail .crumbs__back{display:inline-flex}}
+@media (hover:none),(max-width:810px){html.intro .reveal.in{--b:0px;--y:14px;animation-duration:.8s;animation-delay:0s}html.intro .reveal.in .ws__title{animation:none}}
+@media (max-width:600px){.card,.card:last-child:nth-child(odd),.card--small{min-height:0}.card__title{padding-top:26px}.card__num{margin-top:14px}}
 
 .top{display:flex;justify-content:space-between;gap:16px}
 .hero{padding:clamp(24px,5vw,96px) 0 clamp(48px,6vw,96px)}
@@ -180,7 +184,7 @@ html.intro .hero .kicker{animation-delay:.05s}html.intro .hero .title{--b:.08em;
 html.intro.go .hero>*{animation-play-state:running}
 @media (max-width:1000px){.join{grid-template-columns:1fr}.learn li{grid-template-columns:3em minmax(0,1fr)}.learn span{grid-column:2}}
 @media (max-width:810px){.facts{grid-template-columns:1fr 1fr;gap:20px 16px}.sec{grid-template-columns:minmax(0,1fr)}.pair{grid-template-columns:1fr}.more{grid-template-columns:1fr}.hero{padding-top:28px}}
-@media (max-width:560px){form{grid-template-columns:1fr}.send .btn{width:100%;min-width:0}.lead-by{grid-template-columns:1fr}.lead-by img{width:140px}}
+@media (max-width:560px){.sec{padding-bottom:52px}.hero__row .btn{width:100%}form{grid-template-columns:1fr}.send .btn{width:100%;min-width:0}.lead-by{grid-template-columns:1fr}.lead-by img{width:140px}}
 </style>
 </head>
 <body>
