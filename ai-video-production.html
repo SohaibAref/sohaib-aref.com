@@ -115,6 +115,24 @@ html.intro .reveal.in{--b:10px;--y:24px;animation:focus 1.5s cubic-bezier(.22,1,
 .lead-by img{display:block;width:clamp(120px,12vw,180px);height:auto;aspect-ratio:13/15;object-fit:cover;object-position:50% 12%}
 .lead-by .txt{max-width:34em;margin-top:12px}
 .lead-by .who{font-size:clamp(20px,1vw + 12px,28px);font-weight:600;letter-spacing:-.02em}
+/* films: muted loops that play only while on screen, never clickable */
+.films__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,3vw,48px) clamp(12px,1.2vw,20px);margin-top:clamp(8px,1vw,16px)}
+.film{margin:0}
+.film--lead{grid-column:1/-1}
+.film__frame{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0b0b0b}
+.film__frame video,.film__frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.film__frame video{opacity:0;transition:opacity .9s ease}
+.film__frame video.on{opacity:1}
+.film__cap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 16px;padding-top:14px}
+.film__cap>span{white-space:nowrap}
+.film__cap b{font-weight:400;color:#fff;margin-right:14px}
+.boards{display:grid;gap:clamp(32px,3.6vw,56px);grid-column:1/-1;margin-top:8px}
+.board{margin:0}
+.board__scroll{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#333 transparent}
+.board img{display:block;width:100%;min-width:980px;height:auto}
+.board figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;padding-top:12px;border-top:1px solid #1f1f1f;margin-top:10px}
+.board__hint{display:none}
+@media (max-width:810px){.films__grid{grid-template-columns:1fr}.board__hint{display:inline}}
 /* sign up */
 .join{background:#0a0a0a;border:1px solid #262626;padding:clamp(24px,3vw,56px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px clamp(32px,4vw,80px)}
 .join h2{font-size:clamp(34px,3.6vw,64px);font-weight:900;letter-spacing:-.04em;line-height:.9;text-transform:uppercase;margin:14px 0 20px -.04em}
@@ -172,6 +190,12 @@ html.intro.go .hero>*{animation-play-state:running}
     </dl>
   </header>
 
+  <section class="sec reveal" aria-labelledby="films-h">
+    <p class="mono dim" id="films-h">Selected work</p>
+    <div><p class="big">Films I made with AI tools for fragrance, haircare and fashion.</p></div>
+    <div class="films__grid" style="grid-column:1/-1"><figure class="film film--lead reveal"><div class="film__frame"><img src="films/gris-dior-poster.webp" srcset="films/gris-dior-poster-960.webp 960w, films/gris-dior-poster.webp 1600w" sizes="100vw" width="1600" height="900" alt="" loading="eager"><video muted loop playsinline disablepictureinpicture disableremoteplayback preload="none" aria-label="Gris Dior, film made with AI" data-src="films/gris-dior-1600.mp4" data-src-sm="films/gris-dior-960.mp4"></video></div><figcaption class="film__cap mono"><span><b>Gris Dior</b><span class="dim">Fragrance</span></span><span class="dim">Made with AI · 0:19</span></figcaption></figure><figure class="film reveal"><div class="film__frame"><img src="films/loreal-color-spectrum-poster.webp" srcset="films/loreal-color-spectrum-poster-960.webp 960w, films/loreal-color-spectrum-poster.webp 1600w" sizes="(max-width:810px) 100vw, 50vw" width="1600" height="900" alt="" loading="lazy"><video muted loop playsinline disablepictureinpicture disableremoteplayback preload="none" aria-label="L’Oréal Professionnel, film made with AI" data-src="films/loreal-color-spectrum-1600.mp4" data-src-sm="films/loreal-color-spectrum-960.mp4"></video></div><figcaption class="film__cap mono"><span><b>L’Oréal Professionnel</b><span class="dim">Haircare</span></span><span class="dim">Made with AI · 0:20</span></figcaption></figure><figure class="film reveal"><div class="film__frame"><img src="films/hermes-scarf-poster.webp" srcset="films/hermes-scarf-poster-960.webp 960w, films/hermes-scarf-poster.webp 1600w" sizes="(max-width:810px) 100vw, 50vw" width="1600" height="786" alt="" loading="lazy"><video muted loop playsinline disablepictureinpicture disableremoteplayback preload="none" aria-label="Hermès, film made with AI" data-src="films/hermes-scarf-1600.mp4" data-src-sm="films/hermes-scarf-960.mp4"></video></div><figcaption class="film__cap mono"><span><b>Hermès</b><span class="dim">Fashion</span></span><span class="dim">Made with AI · 0:10</span></figcaption></figure></div>
+  </section>
+
   <section class="sec reveal" aria-labelledby="about">
     <p class="mono dim" id="about">About</p>
     <div><p class="big">AI can give you a shot in minutes. Making it mean something still takes an idea and a director.</p><p class="txt">In this workshop I show how I take a piece from brief to final frame with AI tools, and how to keep the look, the characters and the story consistent from shot to shot. We also cover where AI fits, where it doesn’t, and how to be open with clients about it.</p></div>
@@ -180,6 +204,12 @@ html.intro.go .hero>*{animation-play-state:running}
   <section class="sec reveal" aria-labelledby="learn">
     <p class="mono dim" id="learn">You will learn</p>
     <ol class="learn"><li><b>From brief to shot list</b><span>Turn a brief into one clear idea, then into the shots that tell it.</span></li><li><b>A consistent look</b><span>Style frames, characters and places that stay the same from shot to shot.</span></li><li><b>Directing the models</b><span>Prompting image and video tools shot by shot, the way you would direct a crew.</span></li><li><b>Choose, fix, upscale</b><span>Picking the takes that work and repairing the ones that almost do.</span></li><li><b>Finishing</b><span>Edit, sound and grade, so the piece holds together as a film.</span></li></ol>
+  </section>
+
+  <section class="sec reveal" aria-labelledby="sb-h">
+    <p class="mono dim" id="sb-h">From the storyboard</p>
+    <div><p class="big">Every film starts as a storyboard: the idea, the shots and their order, decided before anything is generated.</p></div>
+    <div class="boards"><figure class="board reveal"><div class="board__scroll"><img src="films/sb-loreal-color-spectrum.webp" width="1557" height="684" alt="Storyboard for the L’Oréal Professionnel film, frame by frame with notes" loading="lazy"></div><figcaption class="mono"><span>Storyboard <span class="dim">· L’Oréal Professionnel</span></span><span class="dim board__hint">Swipe to see all frames</span></figcaption></figure><figure class="board reveal"><div class="board__scroll"><img src="films/sb-gris-dior.webp" width="1559" height="504" alt="Storyboard for the Gris Dior film, frame by frame with notes" loading="lazy"></div><figcaption class="mono"><span>Storyboard <span class="dim">· Gris Dior</span></span><span class="dim board__hint">Swipe to see all frames</span></figcaption></figure></div>
   </section>
 
   <section class="sec reveal" aria-label="Who it is for and what you leave with">
@@ -296,6 +326,20 @@ html.intro.go .hero>*{animation-play-state:running}
       box.classList.add('failed');btn.disabled=false;label.textContent='Join the early list';
     });
   });
+})();
+</script>
+<script>
+(function(){
+  var V=[].slice.call(document.querySelectorAll('video[data-src]'));if(!V.length)return;
+  // reduced motion or data saver: the first frame stays as a still
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches||(navigator.connection&&navigator.connection.saveData)||!('IntersectionObserver' in window))return;
+  function load(v){if(v.getAttribute('src'))return;var px=v.getBoundingClientRect().width*Math.min(devicePixelRatio||1,2);
+    v.src=px>1100?v.dataset.src:v.dataset.srcSm;v.addEventListener('playing',function(){v.classList.add('on')},{once:true})}
+  // each film loads as it comes near, plays only while it is on screen, and pauses when it leaves
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;
+    if(e.isIntersecting){load(v);var p=v.play();if(p&&p.catch)p.catch(function(){})}else if(!v.paused)v.pause()})},{rootMargin:'240px 0px'});
+  V.forEach(function(v){v.muted=true;io.observe(v)});
+  document.addEventListener('visibilitychange',function(){if(document.hidden)V.forEach(function(v){v.pause()})});
 })();
 </script>
 </body>
