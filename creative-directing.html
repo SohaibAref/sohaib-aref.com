@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://sohaib-aref.com/creative-directing.html">
 <meta property="og:title" content="Creative Directing, a workshop by Sohaib Aref">
 <meta property="og:description" content="Find the idea, make the decisions, lead the work to the last frame. Early access is open.">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Course", "name": "Creative Directing", "description": "Creative direction is a series of decisions: why a piece exists, how it should feel, and the one choice that makes it work. I started as a VFX artist and grew into the role, so this workshop stays practical. We start from a brief, find the idea, write the treatment, then direct it through production and the edit.", "url": "https://sohaib-aref.com/creative-directing.html", "inLanguage": "en", "provider": {"@type": "Person", "name": "Sohaib Aref", "jobTitle": "Creative Director", "url": "https://sohaib-aref.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Course", "name": "Creative Directing", "description": "Creative direction is a series of decisions: why a piece exists, how it should feel, and the one choice that makes it work. I started as a VFX artist and grew into the role, so this workshop stays practical. We start from a brief, find the idea, write the treatment, then direct it through production and the edit.", "url": "https://sohaib-aref.com/creative-directing.html", "inLanguage": "en", "teaches": ["Reading the brief", "The treatment", "Setting the look", "Directing people", "In the room"], "audience": {"@type": "Audience", "audienceType": "Designers, Motion artists, Art directors, Filmmakers"}, "provider": {"@type": "Person", "name": "Sohaib Aref", "jobTitle": "Creative Director", "url": "https://sohaib-aref.com/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sohaib Aref", "item": "https://sohaib-aref.com/"}, {"@type": "ListItem", "position": 2, "name": "Workshops", "item": "https://sohaib-aref.com/workshops.html"}, {"@type": "ListItem", "position": 3, "name": "Creative Directing", "item": "https://sohaib-aref.com/creative-directing.html"}]}</script>
 <style>
 @font-face{font-family:Inter;src:url(fonts/inter-var.woff2) format("woff2");font-weight:100 900;font-display:swap}
@@ -40,7 +40,8 @@ a:focus-visible,button:focus-visible{outline:1px solid #fff;outline-offset:4px}
 .links{display:flex;gap:12px 24px;flex-wrap:wrap}
 .btn{display:inline-flex;justify-content:space-between;align-items:center;gap:28px;background:#fff;color:#000;border:1px solid #fff;padding:17px 20px;cursor:pointer;transition:background-color .35s,color .35s}
 .btn .arr{display:inline-flex;transition:transform .45s cubic-bezier(.16,1,.3,1)}
-.ico{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square;overflow:visible}
+.ico,.i{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+.i{width:24px;height:24px}
 /* the scroll cue: shows only when the next part of the page is still below the screen */
 .cue{position:fixed;right:40px;bottom:32px;z-index:40;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;background:rgba(0,0,0,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.28);cursor:pointer;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .6s,transform .7s cubic-bezier(.16,1,.3,1),background-color .3s,color .3s}
 .cue.on{opacity:1;transform:none;pointer-events:auto}
@@ -53,36 +54,33 @@ a:focus-visible,button:focus-visible{outline:1px solid #fff;outline-offset:4px}
 .cue:hover{background:#fff;color:#000;border-color:#fff}
 }
 
-/* the card: a calm black panel that fills white from the bottom on hover */
+/* the card: a calm black panel that fills white from the bottom on hover. Number, title, topics as icons, arrow. */
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.2vw,20px)}
-.card{position:relative;isolation:isolate;display:flex;flex-direction:column;min-height:clamp(440px,36vw,600px);padding:clamp(20px,1.8vw,28px);background:#0a0a0a;border:1px solid #262626;color:#fff;overflow:hidden;transition:color .5s cubic-bezier(.65,0,.35,1),border-color .5s}
+.card{position:relative;isolation:isolate;display:flex;flex-direction:column;min-height:clamp(380px,31vw,520px);padding:clamp(20px,1.8vw,28px);background:#0a0a0a;border:1px solid #222;color:#fff;overflow:hidden;transition:color .5s cubic-bezier(.65,0,.35,1),border-color .5s}
 .card::before{content:"";position:absolute;inset:0;z-index:-1;background:#fff;transform:scaleY(0);transform-origin:50% 100%;transition:transform .6s cubic-bezier(.65,0,.35,1)}
-/* a quiet press state for touch */
 .card:active{border-color:#8a8a8a}
 .card:active .card__go{background:#fff;border-color:#fff;color:#000}
+.card__num{font-weight:200;font-size:clamp(64px,6.4vw,120px);line-height:.8;letter-spacing:-.06em;color:#2a2a2a;margin:0 0 0 -.06em;transition:color .5s}
+.card__title{font-weight:900;font-size:clamp(32px,3.3vw,60px);line-height:.88;letter-spacing:-.04em;text-transform:uppercase;margin:auto 0 0 -.04em;padding-top:40px}
+.card__foot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:clamp(22px,2.2vw,36px)}
+.card__icons{display:flex;gap:clamp(12px,1.1vw,18px);color:#6a6a6a;transition:color .5s}
+.card__icons .i{width:22px;height:22px}
+.card__go{flex:none;margin-left:auto;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1px solid #3a3a3a;transition:background-color .5s,border-color .5s,color .5s}
+.card__go .ico{transition:transform .5s cubic-bezier(.16,1,.3,1)}
 @media (hover:hover){
 .card:hover{color:#000;border-color:#fff}
 .card:hover::before{transform:scaleY(1)}
-}
-.card__top{display:flex;justify-content:space-between;gap:16px;color:#8a8a8a;transition:color .5s}
-.card__num{font-weight:200;font-size:clamp(72px,7.4vw,136px);line-height:.8;letter-spacing:-.06em;color:#2c2c2c;margin:clamp(18px,1.6vw,26px) 0 0 -.06em;transition:color .5s}
-.card__title{font-weight:900;font-size:clamp(34px,3.5vw,64px);line-height:.88;letter-spacing:-.04em;text-transform:uppercase;margin:auto 0 clamp(14px,1.2vw,20px) -.04em;padding-top:40px}
-.card__pitch{min-height:2.7em;font-size:clamp(16px,.5vw + 11px,19px);line-height:1.35;font-weight:500;letter-spacing:-.01em;max-width:22em;color:#c9c9c9;transition:color .5s}
-.card__tags{display:flex;flex-wrap:wrap;gap:6px}
-.card__foot{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-top:clamp(20px,2vw,32px)}
-.card__go{flex:none;margin-left:auto;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1px solid #3a3a3a;transition:background-color .5s,border-color .5s,color .5s}
-.card__go .ico{transition:transform .5s cubic-bezier(.16,1,.3,1)}
-.card__tags span{border:1px solid #333;padding:4px 9px;color:#bdbdbd;transition:border-color .5s,color .5s}
-@media (hover:hover){
-.card:hover .card__top,.card:hover .card__pitch{color:#000}
 .card:hover .card__num{color:#d4d4d4}
-.card:hover .card__tags span{border-color:#000;color:#000}
+.card:hover .card__icons{color:#000}
 .card:hover .card__go{background:#000;border-color:#000;color:#fff}
 .card:hover .card__go .ico{transform:translateX(3px)}
 }
-.card--small{min-height:clamp(240px,20vw,320px)}
-.card--small .card__title{font-size:clamp(28px,2.6vw,44px)}
-.card--small .card__num{display:none}
+/* the small card, for the other workshops: number, title, arrow */
+.card--small{min-height:clamp(200px,16vw,260px)}
+.card--small .card__num{font-family:"Martian Mono",ui-monospace,monospace;font-weight:400;font-size:12px;letter-spacing:.02em;line-height:1;margin:0;color:#6a6a6a}
+.card--small .card__title{font-size:clamp(26px,2.4vw,40px)}
+.card--small .card__title{padding-right:64px}
+.card--small .card__foot{position:absolute;right:clamp(20px,1.8vw,28px);bottom:clamp(20px,1.8vw,28px);margin:0}
 
 /* one slim bar on every workshop page: where you are, and the way back */
 .bar{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.8);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s;view-transition-name:bar}
@@ -106,63 +104,56 @@ a:focus-visible,button:focus-visible{outline:1px solid #fff;outline-offset:4px}
 @keyframes focus{0%{opacity:0;filter:blur(var(--b));transform:translateY(var(--y,0)) scale(var(--s,1))}55%{opacity:1}100%{opacity:1;filter:blur(0);transform:none}}
 html.intro .reveal{opacity:0}
 html.intro .reveal.in{--b:10px;--y:24px;animation:focus 1.5s cubic-bezier(.22,1,.36,1) var(--d,0s) both}
-@media (max-width:960px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.card{min-height:400px}.card:last-child:nth-child(odd){grid-column:1/-1;min-height:320px}.card--small{min-height:0}}
-@media (max-width:600px){.cards{grid-template-columns:minmax(0,1fr)}.card{min-height:360px}.card:last-child:nth-child(odd){min-height:360px}}
+@media (max-width:960px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.card{min-height:360px}.card:last-child:nth-child(odd){grid-column:1/-1;min-height:280px}.card--small{min-height:0}}
+@media (max-width:600px){.cards{grid-template-columns:minmax(0,1fr)}.card,.card:last-child:nth-child(odd){min-height:300px}}
 @media (max-width:810px){.page{padding:20px 20px 28px}.bar__in{padding:0 20px;height:52px}.links a{padding:7px 0}}
 @media (max-width:640px){.bar--detail .crumbs{display:none}.bar--detail .crumbs__back{display:inline-flex}}
 @media (hover:none),(max-width:810px){html.intro .reveal.in{--b:0px;--y:14px;animation-duration:.8s;animation-delay:0s}html.intro .reveal.in .ws__title{animation:none}}
 @media (prefers-reduced-motion:reduce){.cue .ico,.board__wrap.nudge .board__nav--next .ico{animation:none}}
 @media (max-width:640px){.cue{right:20px;bottom:20px}}
-@media (max-width:600px){.card,.card:last-child:nth-child(odd),.card--small{min-height:0}.card__title{padding-top:26px}.card__num{margin-top:14px}}
+@media (max-width:600px){.card,.card:last-child:nth-child(odd){min-height:280px}.card--small{min-height:0}.card__title{padding-top:28px}}
 
-.top{display:flex;justify-content:space-between;gap:16px}
-.hero{padding:clamp(24px,5vw,96px) 0 clamp(48px,6vw,96px)}
+/* one title per section, then the content. No labels, no small print. */
+.hero{padding:clamp(24px,5vw,96px) 0 0}
 .join{scroll-margin-top:76px}
-.kicker{display:flex;flex-wrap:wrap;gap:8px 28px;margin-bottom:clamp(20px,2.4vw,36px)}
 .title{font-weight:900;font-size:clamp(52px,11.2vw,210px);line-height:.84;letter-spacing:-.045em;text-transform:uppercase;margin-left:-.05em}
-.hero__row{display:flex;justify-content:space-between;align-items:flex-end;gap:32px 64px;flex-wrap:wrap;margin-top:clamp(28px,3.4vw,56px)}
-.pitch{font-size:clamp(22px,1.8vw + 6px,38px);font-weight:600;letter-spacing:-.025em;line-height:1.15;max-width:20em;text-wrap:balance}
-.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 clamp(16px,2vw,32px);margin-top:clamp(40px,5vw,80px)}
-.facts div{border-top:1px solid #262626;padding-top:14px}
-.facts dt{color:#8a8a8a;margin-bottom:6px}
-.facts dd{font-size:clamp(12.5px,.2vw + 10.5px,14px);color:#fff}
-.sec{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:24px clamp(24px,3vw,56px);border-top:1px solid #262626;padding:clamp(18px,1.6vw,24px) 0 clamp(64px,8vw,128px)}
-.sec>.mono{padding-top:4px}
-.big{font-size:clamp(22px,1.7vw + 6px,36px);font-weight:600;letter-spacing:-.025em;line-height:1.2;max-width:22em;margin-bottom:24px;text-wrap:pretty}
-.sec .txt{max-width:40em}
-.learn{list-style:none;padding:0;counter-reset:l}
-.learn li{counter-increment:l;display:grid;grid-template-columns:4em minmax(0,1fr) minmax(0,1.3fr);gap:8px 24px;padding:20px 0;border-top:1px solid #1f1f1f}
-.learn li:last-child{border-bottom:1px solid #1f1f1f}
-.learn li::before{content:counter(l,decimal-leading-zero);font-family:"Martian Mono",ui-monospace,monospace;font-size:11px;color:#7a7a7a;padding-top:.5em}
-.learn b{font-size:clamp(18px,.6vw + 12px,22px);font-weight:600;letter-spacing:-.015em;line-height:1.25}
-.learn span{font-size:clamp(15px,.3vw + 12px,17px);line-height:1.5;color:#a8a8a8}
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:40px clamp(24px,3vw,56px)}
-.pair .mono{margin-bottom:12px}
-.pair p.lg{font-size:clamp(18px,.8vw + 11px,24px);font-weight:500;letter-spacing:-.015em;line-height:1.35;color:#fff;text-wrap:pretty}
-.lead-by{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px clamp(24px,3vw,48px);align-items:end}
-.lead-by img{display:block;width:clamp(120px,12vw,180px);height:auto;aspect-ratio:13/15;object-fit:cover;object-position:50% 12%}
-.lead-by .txt{max-width:34em;margin-top:12px}
-.go{display:inline-flex;align-items:center;gap:10px}
-.go .ico{width:14px;height:14px;transition:transform .45s cubic-bezier(.16,1,.3,1)}
-.go:hover .ico{transform:translateX(3px)}
-.lead-by .who{font-size:clamp(20px,1vw + 12px,28px);font-weight:600;letter-spacing:-.02em}
+.hero__row{display:flex;justify-content:space-between;align-items:flex-end;gap:28px 64px;flex-wrap:wrap;margin-top:clamp(28px,3.4vw,56px)}
+.pitch{font-size:clamp(20px,1.6vw + 6px,34px);font-weight:500;letter-spacing:-.02em;line-height:1.2;max-width:20em;color:#d9d9d9;text-wrap:balance}
+.sec{margin-top:clamp(96px,11vw,176px);min-width:0}
+.h2{font-weight:900;font-size:clamp(30px,3.4vw,60px);line-height:.9;letter-spacing:-.04em;text-transform:uppercase;margin:0 0 clamp(24px,2.6vw,40px) -.03em}
+/* what you learn: one icon and a short title per topic; the last tile is what you leave with */
+.tiles{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1vw,16px)}
+.tile{display:flex;flex-direction:column;justify-content:space-between;gap:36px;min-height:clamp(150px,13vw,210px);padding:clamp(20px,1.8vw,28px);background:#0a0a0a;border:1px solid #1c1c1c}
+.tile .i{width:clamp(26px,1.6vw + 8px,32px);height:auto}
+.tile b{font-size:clamp(17px,.5vw + 12px,22px);font-weight:600;letter-spacing:-.015em;line-height:1.2;text-wrap:balance}
+.tile--end{background:#fff;border-color:#fff;color:#000}
+.tile--end b{font-weight:500}
+/* who it is for */
+.roles{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.roles li{display:inline-flex;align-items:center;gap:12px;padding:14px 20px 14px 16px;border:1px solid #262626;font-size:clamp(15px,.3vw + 12px,17px);line-height:1.2}
+.roles .i{width:22px;height:22px}
+/* led by */
+.by{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:20px clamp(20px,3vw,48px);align-items:end}
+.by img{display:block;width:clamp(110px,11vw,168px);height:auto;aspect-ratio:13/15;object-fit:cover;object-position:50% 12%}
+.by .h2{margin-bottom:12px}
+.stats{display:flex;flex-wrap:wrap;gap:16px clamp(28px,4vw,72px)}
+.stats div{display:flex;flex-direction:column;gap:8px}
+.stats b{font-size:clamp(32px,2.8vw,52px);font-weight:800;letter-spacing:-.045em;line-height:.85}
 /* films: muted loops that play only while on screen, never clickable */
-.films__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,3vw,48px) clamp(12px,1.2vw,20px);margin-top:clamp(8px,1vw,16px)}
+.films__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,3vw,44px) clamp(12px,1.2vw,20px)}
 .film{margin:0}
 .film--lead{grid-column:1/-1}
 .film__frame{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0b0b0b}
 .film__frame video,.film__frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
 .film__frame video{opacity:0;transition:opacity .9s ease}
 .film__frame video.on{opacity:1}
-.film__cap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 16px;padding-top:14px}
-.film__cap>span{white-space:nowrap}
-.film__cap b{font-weight:400;color:#fff;margin-right:14px}
-.boards{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(32px,3.6vw,56px);grid-column:1/-1;margin-top:8px;min-width:0}
-.board{min-width:0}
-.board{margin:0}
+.film__cap{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-top:14px}
+.film__cap b{font-weight:400;color:#fff}
+.boards{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(32px,3.6vw,56px);min-width:0}
+.board{margin:0;min-width:0}
 .board__scroll{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#333 transparent}
 .board img{display:block;width:100%;min-width:980px;height:auto}
-.board figcaption{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:4px 16px;padding-top:12px;border-top:1px solid #1f1f1f;margin-top:10px}
+.board figcaption{padding-top:14px}
 .board__wrap{position:relative}
 .board__wrap::after{content:"";position:absolute;top:0;right:0;bottom:0;width:72px;background:linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,.6));opacity:0;transition:opacity .4s;pointer-events:none}
 .board__wrap.can-next::after{opacity:1}
@@ -174,18 +165,16 @@ html.intro .reveal.in{--b:10px;--y:24px;animation:focus 1.5s cubic-bezier(.22,1,
 @media (hover:hover){.board__nav:hover{background:#fff;color:#000;border-color:#fff}}
 @media (max-width:810px){.films__grid{grid-template-columns:1fr}}
 /* sign up */
-.join{background:#0a0a0a;border:1px solid #262626;padding:clamp(24px,3vw,56px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px clamp(32px,4vw,80px)}
-.join h2{font-size:clamp(34px,3.6vw,64px);font-weight:900;letter-spacing:-.04em;line-height:.9;text-transform:uppercase;margin:14px 0 20px -.04em}
-.join .txt{max-width:28em}
+.join{background:#0a0a0a;border:1px solid #222;padding:clamp(24px,3vw,56px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:32px clamp(32px,4vw,80px)}
+.join .h2{font-size:clamp(34px,3.6vw,64px);margin-bottom:20px}
+.note{display:flex;align-items:center;gap:12px;color:#c9c9c9;font-size:clamp(15px,.3vw + 12px,17px);line-height:1.4}
+.note .i{width:20px;height:20px;color:#fff}
 form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;align-content:start}
 .f{display:flex;flex-direction:column;gap:8px}
-.f--wide{grid-column:1/-1}
 .f label{color:#8a8a8a}
-.f input,.f select,.f textarea{font:inherit;font-size:16px;color:#fff;background:#000;border:1px solid #333;border-radius:0;padding:14px 14px;outline:none;transition:border-color .25s;-webkit-appearance:none;appearance:none}
+.f input,.f select{font:inherit;font-size:16px;color:#fff;background:#000;border:1px solid #333;border-radius:0;padding:14px 14px;outline:none;transition:border-color .25s;-webkit-appearance:none;appearance:none}
 .f select{background-image:linear-gradient(45deg,transparent 50%,#8a8a8a 50%),linear-gradient(135deg,#8a8a8a 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:40px}
-.f textarea{min-height:96px;resize:vertical}
-.f input:focus,.f select:focus,.f textarea:focus{border-color:#fff}
-.f input::placeholder,.f textarea::placeholder{color:#555}
+.f input:focus,.f select:focus{border-color:#fff}
 .f .err{color:#ff8a7a;font-size:13px;min-height:0}
 .f.bad input,.f.bad select{border-color:#ff8a7a}
 .check{grid-column:1/-1;display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.5;color:#a8a8a8;cursor:pointer}
@@ -198,70 +187,58 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;align-content:star
 .send .btn[disabled]{opacity:.6;pointer-events:none}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .done{display:none;grid-column:1/-1;border:1px solid #333;padding:28px}
-.done h3{font-size:clamp(24px,1.6vw + 8px,34px);font-weight:600;letter-spacing:-.02em;margin:10px 0 10px}
+.done h3{font-size:clamp(24px,1.6vw + 8px,34px);font-weight:600;letter-spacing:-.02em;margin:0 0 10px}
 .sent form{display:none}.sent .done{display:block}
 .done .via-kit,.kit .done .via-net{display:none}.kit .done .via-kit{display:block}
 .fail{display:none;color:#ff8a7a;font-size:14px;line-height:1.5}
 .failed .fail{display:block}
 .more{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.2vw,20px)}
 html.intro .hero>*{--b:12px;--y:18px;animation:focus 1.8s cubic-bezier(.22,1,.36,1) both paused}
-html.intro .hero .kicker{animation-delay:.05s}html.intro .hero .title{--b:.08em;--y:.1em;animation-delay:.12s}html.intro .hero .hero__row{animation-delay:.4s}html.intro .hero .facts{animation-delay:.55s}
+html.intro .hero .title{--b:.08em;--y:.1em;animation-delay:.05s}html.intro .hero .hero__row{animation-delay:.35s}
 html.intro.go .hero>*{animation-play-state:running}
-@media (max-width:1000px){.join{grid-template-columns:1fr}.learn li{grid-template-columns:3em minmax(0,1fr)}.learn span{grid-column:2}}
-@media (max-width:810px){.facts{grid-template-columns:1fr 1fr;gap:20px 16px}.sec{grid-template-columns:minmax(0,1fr)}.pair{grid-template-columns:1fr}.more{grid-template-columns:1fr}.hero{padding-top:28px}}
-@media (max-width:560px){.sec{padding-bottom:52px}.hero__row .btn{width:100%}form{grid-template-columns:1fr}.send .btn{width:100%;min-width:0}.lead-by{grid-template-columns:1fr}.lead-by img{width:140px}}
+@media (max-width:1000px){.join{grid-template-columns:1fr}}
+@media (max-width:810px){.by{grid-template-columns:auto minmax(0,1fr)}.stats{grid-column:1/-1;margin-top:8px}.tiles{grid-template-columns:1fr 1fr}.more{grid-template-columns:1fr}.hero{padding-top:28px}}
+@media (max-width:560px){.sec{margin-top:88px}.hero__row .btn{width:100%}form{grid-template-columns:1fr}.send .btn{width:100%;min-width:0}
+.tile{min-height:132px;gap:28px;padding:18px}.tile b{font-size:16px}
+.by{grid-template-columns:auto minmax(0,1fr)}.by img{width:96px}.by .h2{font-size:30px}.stats{grid-column:1/-1;margin-top:4px;gap:16px 32px}
+.roles li{padding:12px 16px 12px 14px}}
 </style>
 </head>
 <body>
-<header class="bar bar--detail" data-bar><nav class="bar__in mono" aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Sohaib Aref</a></li><li><a href="workshops.html">Workshops</a></li><li><span aria-current="page">Creative Directing</span></li></ol><a class="crumbs__back" href="workshops.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 12h-16M10.5 6l-6 6 6 6"/></svg>All workshops</a><a class="bar__cta" href="#early-list" data-scroll>Join the early list</a></nav></header>
+<header class="bar bar--detail" data-bar><nav class="bar__in mono" aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Sohaib Aref</a></li><li><a href="workshops.html">Workshops</a></li><li><span aria-current="page">Creative Directing</span></li></ol><a class="crumbs__back" href="workshops.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>All workshops</a><a class="bar__cta" href="#early-list" data-scroll>Join the early list</a></nav></header>
 <main class="page">
 
   <header class="hero">
-    <p class="kicker mono"><span class="dim">Workshop 02</span><span>Early access open</span></p>
     <h1 class="title">Creative<br>Directing</h1>
     <div class="hero__row">
       <p class="pitch">Find the idea, make the decisions, lead the work to the last frame.</p>
-      <a class="btn mono" href="#early-list" data-scroll>Join the early list<span class="arr arr--d"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.5v16M6 13.5l6 6 6-6"/></svg></span></a>
+      <a class="btn mono" href="#early-list" data-scroll>Join the early list<span class="arr arr--d"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></span></a>
     </div>
-    <dl class="facts mono">
-      <div><dt>Status</dt><dd>Early access open</dd></div>
-      <div><dt>Dates</dt><dd>To be announced</dd></div>
-      <div><dt>Format</dt><dd>To be announced</dd></div>
-      <div><dt>Led by</dt><dd>Sohaib Aref</dd></div>
-    </dl>
   </header>
 
-  <section class="sec reveal" aria-labelledby="about">
-    <p class="mono dim" id="about">About</p>
-    <div><p class="big">Creative direction is a series of decisions: why a piece exists, how it should feel, and the one choice that makes it work.</p><p class="txt">I started as a VFX artist and grew into the role, so this workshop stays practical. We start from a brief, find the idea, write the treatment, then direct it through production and the edit.</p></div>
+  <section class="sec" aria-labelledby="learn-h">
+    <h2 class="h2 reveal" id="learn-h">What you’ll learn</h2>
+    <ul class="tiles"><li class="tile reveal" style="--d:0.00s"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /><path d="M14 2v5a1 1 0 0 0 1 1h5" /><circle cx="11.5" cy="14.5" r="2.5" /><path d="M13.3 16.3 15 18" /></svg><b>Reading the brief</b></li><li class="tile reveal" style="--d:0.06s"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4" /><path d="M2 6h4" /><path d="M2 10h4" /><path d="M2 14h4" /><path d="M2 18h4" /><path d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" /></svg><b>The treatment</b></li><li class="tile reveal" style="--d:0.12s"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /><path d="m14.31 8 5.74 9.94" /><path d="M9.69 8h11.48" /><path d="m7.38 12 5.74-9.94" /><path d="M9.69 16 3.95 6.06" /><path d="M14.31 16H2.83" /><path d="m16.62 12-5.74 9.94" /></svg><b>Setting the look</b></li><li class="tile reveal" style="--d:0.18s"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" /><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" /><path d="M8 6v8" /></svg><b>Directing people</b></li><li class="tile reveal" style="--d:0.24s"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 3h20" /><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /><path d="m7 21 5-5 5 5" /></svg><b>In the room</b></li><li class="tile tile--end reveal" style="--d:0.30s"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528" /></svg><b>You leave with a treatment and a short piece you directed.</b></li></ul>
   </section>
 
-  <section class="sec reveal" aria-labelledby="learn">
-    <p class="mono dim" id="learn">You will learn</p>
-    <ol class="learn"><li><b>Reading the brief</b><span>Finding the idea behind what the brief asks for.</span></li><li><b>The treatment</b><span>Writing it, and building references that sell the idea before anything is made.</span></li><li><b>Setting the look</b><span>Deciding frame, colour, type and sound, and keeping them consistent.</span></li><li><b>Directing people</b><span>Giving direction and feedback that moves the work forward.</span></li><li><b>In the room</b><span>Presenting the idea and holding it through questions and changes.</span></li></ol>
+  <section class="sec" aria-labelledby="for-h">
+    <h2 class="h2 reveal" id="for-h">Who it’s for</h2>
+    <ul class="roles reveal"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m18 13-.654-4.736a4 4 0 00-2.756-3.266l-9.163-2.9a2 2 0 00-2.017.493l-.82.819a2 2 0 00-.492 2.017l2.9 9.163a4 4 0 003.266 2.756L13 18" /><path d="M18.648 12.352a1.205 1.205 0 011.704 0l1.296 1.296a1.205 1.205 0 010 1.704l-6.296 6.296a1.205 1.205 0 01-1.704 0l-1.296-1.296a1.205 1.205 0 010-1.704z" /><path d="m3 3 6.586 6.586" /><circle cx="11" cy="11" r="2" /></svg><span>Designers</span></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.341 6.484A10 10 0 0 1 10.266 21.85" /><path d="M3.659 17.516A10 10 0 0 1 13.74 2.152" /><circle cx="12" cy="12" r="3" /><circle cx="19" cy="5" r="2" /><circle cx="5" cy="19" r="2" /></svg><span>Motion artists</span></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg><span>Art directors</span></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" /><rect x="2" y="6" width="14" height="12" rx="2" /></svg><span>Filmmakers</span></li></ul>
   </section>
 
-  <section class="sec reveal" aria-label="Who it is for and what you leave with">
-    <p class="mono dim">The fit</p>
-    <div class="pair">
-      <div><p class="mono dim">Who it’s for</p><p class="lg">Designers, motion artists, art directors and filmmakers stepping into creative direction.</p></div>
-      <div><p class="mono dim">You leave with</p><p class="lg">A treatment and a short piece you directed, from brief to final cut.</p></div>
-    </div>
-  </section>
-
-  <section class="sec reveal" aria-labelledby="led">
-    <p class="mono dim" id="led">Led by</p>
-    <div class="lead-by">
-      <picture><source type="image/webp" srcset="img/portrait-320.webp 320w, img/portrait-480.webp 480w" sizes="180px"><img src="img/portrait-480.jpg" width="1200" height="1499" alt="Portrait of Sohaib Aref" loading="lazy"></picture>
-      <div><p class="who">Sohaib Aref</p><p class="txt">I’m a creative director with a maker’s hands. Over 8 years in VFX, motion design and 3D, I’ve worked on more than 150 projects for 40+ brands across Türkiye, KSA and Europe.</p></div>
-    </div>
-  </section>
-
-  <section class="join reveal" id="early-list" aria-labelledby="join-h">
+  <section class="sec by reveal" aria-labelledby="by-h">
+    <picture><source type="image/webp" srcset="img/portrait-320.webp 320w, img/portrait-480.webp 480w" sizes="168px"><img src="img/portrait-480.jpg" width="1200" height="1499" alt="Portrait of Sohaib Aref" loading="lazy"></picture>
     <div>
-      <p class="mono dim">Early list</p>
-      <h2 id="join-h">Join the<br>early list</h2>
-      <p class="txt">Dates, format and places go to this list first. I only write when there is news about Creative Directing.</p>
+      <h2 class="h2" id="by-h">Sohaib Aref</h2>
+      <p class="mono dim">Creative Director</p>
+    </div>
+    <div class="stats"><div><b>8+</b><span class="mono dim">Years</span></div><div><b>150+</b><span class="mono dim">Projects</span></div><div><b>40+</b><span class="mono dim">Brands</span></div></div>
+  </section>
+
+  <section class="sec join reveal" id="early-list" aria-labelledby="join-h">
+    <div>
+      <h2 class="h2" id="join-h">Join the<br>early list</h2>
+      <p class="note"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.268 21a2 2 0 0 0 3.464 0" /><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" /></svg><span>You’ll hear about dates and places first.</span></p>
     </div>
     <div>
       <form novalidate data-endpoint="https://sohaib-aref.netlify.app/" data-kit="10207666" data-slug="creative-directing" name="early-list">
@@ -272,26 +249,24 @@ html.intro.go .hero>*{animation-play-state:running}
         <div class="f"><label class="mono" for="m">Email</label><input id="m" name="email" type="email" autocomplete="email" inputmode="email" required><span class="err" aria-live="polite"></span></div>
         <div class="f"><label class="mono" for="r">What you do</label><select id="r" name="role"><option value="" selected>Choose one</option><option>Designer</option><option>Motion designer</option><option>Art director</option><option>Creative director</option><option>Filmmaker or director</option><option>Editor</option><option>Marketer</option><option>Student</option><option>Other</option></select></div>
         <div class="f"><label class="mono" for="c">City</label><input id="c" name="city" autocomplete="address-level2"></div>
-        <div class="f f--wide"><label class="mono" for="t">Anything I should know <span class="dim">(optional)</span></label><textarea id="t" name="note" rows="3"></textarea></div>
-        <label class="check"><input type="checkbox" name="consent" value="yes"><span>I’m happy to get emails about this workshop. My details are used only for this list, and I can ask to be removed at any time.</span></label>
-        <div class="send"><button class="btn mono" type="submit"><span class="lbl">Join the early list</span><span class="arr"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 12h16M13.5 6l6 6-6 6"/></svg></span></button><p class="fail" role="alert">That didn’t go through. Try again, or write to <a href="mailto:hello@sohaib-aref.com?subject=Early%20list%3A%20Creative%20Directing">hello@sohaib-aref.com</a>.</p></div>
+        <label class="check"><input type="checkbox" name="consent" value="yes"><span>Email me about this workshop. My details stay on this list, and I can leave anytime.</span></label>
+        <div class="send"><button class="btn mono" type="submit"><span class="lbl">Join the early list</span><span class="arr"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></button><p class="fail" role="alert">That didn’t go through. Try again, or write to <a href="mailto:hello@sohaib-aref.com?subject=Early%20list%3A%20Creative%20Directing">hello@sohaib-aref.com</a>.</p></div>
       </form>
       <div class="done" role="status">
-        <div class="via-kit"><p class="mono dim">One more step</p><h3>Check your inbox.</h3><p class="txt">I’ve sent a short email to <span data-echo></span>. Tap the button in it to confirm your place on the early list for Creative Directing.</p><p class="txt dim" style="margin-top:10px">Not there in a minute? Look in spam or Promotions.</p></div>
-        <div class="via-net"><p class="mono dim">You’re on the list</p><h3>Thank you. I’ll be in touch.</h3><p class="txt">When dates for Creative Directing are set, I’ll write to <span data-echo></span> first.</p></div>
-        <p class="mono" style="margin-top:22px"><a class="go" href="workshops.html">All workshops<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 12h16M13.5 6l6 6-6 6"/></svg></a></p>
+        <div class="via-kit"><h3>Check your inbox.</h3><p class="txt">Tap the button in the email I sent to <span data-echo></span>.</p></div>
+        <div class="via-net"><h3>You’re on the list.</h3><p class="txt">I’ll write to <span data-echo></span> when dates are set.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="sec reveal" aria-label="Other workshops" style="padding-bottom:0;margin-top:clamp(64px,8vw,128px)">
-    <div><p class="mono dim">Other workshops</p><p class="mono" style="margin-top:14px"><a class="go" href="workshops.html">All workshops<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 12h16M13.5 6l6 6-6 6"/></svg></a></p></div>
-    <div class="more"><a class="card card--small reveal" style="--d:0s" href="ai-video-production.html"><div class="card__top mono"><span>Workshop 01</span><span>Early access</span></div><h3 class="card__title">AI Video<br>Production</h3><p class="card__pitch">Make video with AI that still feels directed.</p><div class="card__foot"><span class="card__go"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 12h16M13.5 6l6 6-6 6"/></svg></span></div></a><a class="card card--small reveal" style="--d:0s" href="motion-design.html"><div class="card__top mono"><span>Workshop 03</span><span>Early access</span></div><h3 class="card__title">Motion<br>Design</h3><p class="card__pitch">Timing, type and craft that hold up frame by frame.</p><div class="card__foot"><span class="card__go"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 12h16M13.5 6l6 6-6 6"/></svg></span></div></a></div>
+  <section class="sec" aria-labelledby="more-h">
+    <h2 class="h2 reveal" id="more-h">More workshops</h2>
+    <div class="more"><a class="card card--small reveal" style="--d:0s" href="ai-video-production.html"><p class="card__num" aria-hidden="true">01</p><h3 class="card__title">AI Video<br>Production</h3><div class="card__foot"><span class="card__go"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></a><a class="card card--small reveal" style="--d:0s" href="motion-design.html"><p class="card__num" aria-hidden="true">03</p><h3 class="card__title">Motion<br>Design</h3><div class="card__foot"><span class="card__go"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></a></div>
   </section>
 
   <footer class="foot"><p class="mono links"><a href="index.html">Home</a><a href="mailto:hello@sohaib-aref.com?subject=Workshops">hello@sohaib-aref.com</a><a href="https://www.instagram.com/sohaib_creative/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/sohaib-creative/" target="_blank" rel="noopener">LinkedIn</a></p></footer>
 </main>
-<div class="cue" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.5v16M6 13.5l6 6 6-6"/></svg></div>
+<div class="cue" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></div>
 <script>
 (function(){
   var bar=document.querySelector('[data-bar]');if(!bar)return;
@@ -352,7 +327,7 @@ html.intro.go .hero>*{animation-play-state:running}
     // Kit keeps the list and sends the confirmation email; Netlify keeps a copy of every sign-up
     var kit=f.getAttribute('data-kit'),kd=new FormData();
     kd.append('email_address',f.elements.email.value.trim());kd.append('fields[first_name]',f.elements.name.value.trim());
-    ['role','city','note'].forEach(function(n){var v=f.elements[n].value.trim();if(v)kd.append('fields['+n+']',v)});
+    ['role','city','note'].forEach(function(n){var el=f.elements[n],v=el&&el.value.trim();if(v)kd.append('fields['+n+']',v)});
     var toKit=kit?fetch('https://app.kit.com/forms/'+kit+'/subscriptions',{method:'POST',headers:{Accept:'application/json'},body:kd}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(j){if(j&&j.status&&j.status!=='success')throw new Error(j.status)}):Promise.reject(new Error('off'));
     var toNet=fetch(f.getAttribute('data-endpoint'),{method:'POST',mode:'no-cors',body:data});
     Promise.allSettled([toKit,toNet]).then(function(r){

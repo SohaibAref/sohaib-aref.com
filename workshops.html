@@ -39,7 +39,8 @@ a:focus-visible,button:focus-visible{outline:1px solid #fff;outline-offset:4px}
 .links{display:flex;gap:12px 24px;flex-wrap:wrap}
 .btn{display:inline-flex;justify-content:space-between;align-items:center;gap:28px;background:#fff;color:#000;border:1px solid #fff;padding:17px 20px;cursor:pointer;transition:background-color .35s,color .35s}
 .btn .arr{display:inline-flex;transition:transform .45s cubic-bezier(.16,1,.3,1)}
-.ico{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square;overflow:visible}
+.ico,.i{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+.i{width:24px;height:24px}
 /* the scroll cue: shows only when the next part of the page is still below the screen */
 .cue{position:fixed;right:40px;bottom:32px;z-index:40;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;background:rgba(0,0,0,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.28);cursor:pointer;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .6s,transform .7s cubic-bezier(.16,1,.3,1),background-color .3s,color .3s}
 .cue.on{opacity:1;transform:none;pointer-events:auto}
@@ -52,36 +53,33 @@ a:focus-visible,button:focus-visible{outline:1px solid #fff;outline-offset:4px}
 .cue:hover{background:#fff;color:#000;border-color:#fff}
 }
 
-/* the card: a calm black panel that fills white from the bottom on hover */
+/* the card: a calm black panel that fills white from the bottom on hover. Number, title, topics as icons, arrow. */
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.2vw,20px)}
-.card{position:relative;isolation:isolate;display:flex;flex-direction:column;min-height:clamp(440px,36vw,600px);padding:clamp(20px,1.8vw,28px);background:#0a0a0a;border:1px solid #262626;color:#fff;overflow:hidden;transition:color .5s cubic-bezier(.65,0,.35,1),border-color .5s}
+.card{position:relative;isolation:isolate;display:flex;flex-direction:column;min-height:clamp(380px,31vw,520px);padding:clamp(20px,1.8vw,28px);background:#0a0a0a;border:1px solid #222;color:#fff;overflow:hidden;transition:color .5s cubic-bezier(.65,0,.35,1),border-color .5s}
 .card::before{content:"";position:absolute;inset:0;z-index:-1;background:#fff;transform:scaleY(0);transform-origin:50% 100%;transition:transform .6s cubic-bezier(.65,0,.35,1)}
-/* a quiet press state for touch */
 .card:active{border-color:#8a8a8a}
 .card:active .card__go{background:#fff;border-color:#fff;color:#000}
+.card__num{font-weight:200;font-size:clamp(64px,6.4vw,120px);line-height:.8;letter-spacing:-.06em;color:#2a2a2a;margin:0 0 0 -.06em;transition:color .5s}
+.card__title{font-weight:900;font-size:clamp(32px,3.3vw,60px);line-height:.88;letter-spacing:-.04em;text-transform:uppercase;margin:auto 0 0 -.04em;padding-top:40px}
+.card__foot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:clamp(22px,2.2vw,36px)}
+.card__icons{display:flex;gap:clamp(12px,1.1vw,18px);color:#6a6a6a;transition:color .5s}
+.card__icons .i{width:22px;height:22px}
+.card__go{flex:none;margin-left:auto;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1px solid #3a3a3a;transition:background-color .5s,border-color .5s,color .5s}
+.card__go .ico{transition:transform .5s cubic-bezier(.16,1,.3,1)}
 @media (hover:hover){
 .card:hover{color:#000;border-color:#fff}
 .card:hover::before{transform:scaleY(1)}
-}
-.card__top{display:flex;justify-content:space-between;gap:16px;color:#8a8a8a;transition:color .5s}
-.card__num{font-weight:200;font-size:clamp(72px,7.4vw,136px);line-height:.8;letter-spacing:-.06em;color:#2c2c2c;margin:clamp(18px,1.6vw,26px) 0 0 -.06em;transition:color .5s}
-.card__title{font-weight:900;font-size:clamp(34px,3.5vw,64px);line-height:.88;letter-spacing:-.04em;text-transform:uppercase;margin:auto 0 clamp(14px,1.2vw,20px) -.04em;padding-top:40px}
-.card__pitch{min-height:2.7em;font-size:clamp(16px,.5vw + 11px,19px);line-height:1.35;font-weight:500;letter-spacing:-.01em;max-width:22em;color:#c9c9c9;transition:color .5s}
-.card__tags{display:flex;flex-wrap:wrap;gap:6px}
-.card__foot{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-top:clamp(20px,2vw,32px)}
-.card__go{flex:none;margin-left:auto;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1px solid #3a3a3a;transition:background-color .5s,border-color .5s,color .5s}
-.card__go .ico{transition:transform .5s cubic-bezier(.16,1,.3,1)}
-.card__tags span{border:1px solid #333;padding:4px 9px;color:#bdbdbd;transition:border-color .5s,color .5s}
-@media (hover:hover){
-.card:hover .card__top,.card:hover .card__pitch{color:#000}
 .card:hover .card__num{color:#d4d4d4}
-.card:hover .card__tags span{border-color:#000;color:#000}
+.card:hover .card__icons{color:#000}
 .card:hover .card__go{background:#000;border-color:#000;color:#fff}
 .card:hover .card__go .ico{transform:translateX(3px)}
 }
-.card--small{min-height:clamp(240px,20vw,320px)}
-.card--small .card__title{font-size:clamp(28px,2.6vw,44px)}
-.card--small .card__num{display:none}
+/* the small card, for the other workshops: number, title, arrow */
+.card--small{min-height:clamp(200px,16vw,260px)}
+.card--small .card__num{font-family:"Martian Mono",ui-monospace,monospace;font-weight:400;font-size:12px;letter-spacing:.02em;line-height:1;margin:0;color:#6a6a6a}
+.card--small .card__title{font-size:clamp(26px,2.4vw,40px)}
+.card--small .card__title{padding-right:64px}
+.card--small .card__foot{position:absolute;right:clamp(20px,1.8vw,28px);bottom:clamp(20px,1.8vw,28px);margin:0}
 
 /* one slim bar on every workshop page: where you are, and the way back */
 .bar{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.8);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s;view-transition-name:bar}
@@ -105,49 +103,31 @@ a:focus-visible,button:focus-visible{outline:1px solid #fff;outline-offset:4px}
 @keyframes focus{0%{opacity:0;filter:blur(var(--b));transform:translateY(var(--y,0)) scale(var(--s,1))}55%{opacity:1}100%{opacity:1;filter:blur(0);transform:none}}
 html.intro .reveal{opacity:0}
 html.intro .reveal.in{--b:10px;--y:24px;animation:focus 1.5s cubic-bezier(.22,1,.36,1) var(--d,0s) both}
-@media (max-width:960px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.card{min-height:400px}.card:last-child:nth-child(odd){grid-column:1/-1;min-height:320px}.card--small{min-height:0}}
-@media (max-width:600px){.cards{grid-template-columns:minmax(0,1fr)}.card{min-height:360px}.card:last-child:nth-child(odd){min-height:360px}}
+@media (max-width:960px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.card{min-height:360px}.card:last-child:nth-child(odd){grid-column:1/-1;min-height:280px}.card--small{min-height:0}}
+@media (max-width:600px){.cards{grid-template-columns:minmax(0,1fr)}.card,.card:last-child:nth-child(odd){min-height:300px}}
 @media (max-width:810px){.page{padding:20px 20px 28px}.bar__in{padding:0 20px;height:52px}.links a{padding:7px 0}}
 @media (max-width:640px){.bar--detail .crumbs{display:none}.bar--detail .crumbs__back{display:inline-flex}}
 @media (hover:none),(max-width:810px){html.intro .reveal.in{--b:0px;--y:14px;animation-duration:.8s;animation-delay:0s}html.intro .reveal.in .ws__title{animation:none}}
 @media (prefers-reduced-motion:reduce){.cue .ico,.board__wrap.nudge .board__nav--next .ico{animation:none}}
 @media (max-width:640px){.cue{right:20px;bottom:20px}}
-@media (max-width:600px){.card,.card:last-child:nth-child(odd),.card--small{min-height:0}.card__title{padding-top:26px}.card__num{margin-top:14px}}
+@media (max-width:600px){.card,.card:last-child:nth-child(odd){min-height:280px}.card--small{min-height:0}.card__title{padding-top:28px}}
 
 .mark{font-weight:900;font-size:13.6vw;line-height:.8;letter-spacing:-.035em;text-transform:uppercase;white-space:nowrap;margin-left:-.04em;padding-top:.06em}
-.lede{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 40px;align-items:end;margin:clamp(40px,5vw,80px) 0 clamp(36px,4vw,64px)}
-.lede .mono{margin-bottom:14px}
-.lead{font-size:clamp(22px,1.7vw + 6px,34px);font-weight:600;letter-spacing:-.025em;line-height:1.15;max-width:18em;margin-bottom:16px;text-wrap:balance}
-.lede .txt{max-width:34em}
-.closing{border-top:1px solid #262626;margin-top:clamp(56px,7vw,112px);padding-top:20px;display:flex;flex-wrap:wrap;gap:12px 40px;justify-content:space-between;align-items:baseline}
+.cards{margin-top:clamp(40px,5vw,80px)}
 html.intro .mark>span{display:inline-block;--b:.1em;--s:1.04;animation:focus 2s cubic-bezier(.22,1,.36,1) .05s both paused}
-html.intro .lede{--b:9px;--y:14px;animation:focus 1.7s cubic-bezier(.22,1,.36,1) .4s both paused}
-html.intro.go .mark>span,html.intro.go .lede{animation-play-state:running}
-@media (max-width:810px){.lede{grid-template-columns:1fr;margin:36px 0 32px}}
+html.intro.go .mark>span{animation-play-state:running}
 </style>
 </head>
 <body>
 <header class="bar" data-bar><nav class="bar__in mono" aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Sohaib Aref</a></li><li><span aria-current="page">Workshops</span></li></ol><a class="bar__link" href="mailto:hello@sohaib-aref.com?subject=Workshops">Contact</a></nav></header>
 <main class="page">
   <h1 class="mark"><span data-fit>Workshops</span></h1>
-  <section class="lede">
-    <div>
-      <p class="mono dim">Early access</p>
-      <p class="lead">Workshops, built from how I work.</p>
-      <p class="txt">Dates, format and places go to the early list first.</p>
-    </div>
-    <p class="mono dim">More on the way</p>
-  </section>
   <section class="cards" aria-label="Workshops">
-    <a class="card reveal" style="--d:0.5s" href="ai-video-production.html"><div class="card__top mono"><span>Workshop 01</span><span>Early access</span></div><p class="card__num" aria-hidden="true">01</p><h2 class="card__title">AI Video<br>Production</h2><p class="card__pitch">Make video with AI that still feels directed.</p><div class="card__foot"><div class="card__tags mono" aria-label="Covers"><span>Idea</span><span>Look</span><span>Shots</span><span>Finish</span></div><span class="card__go"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 12h16M13.5 6l6 6-6 6"/></svg></span></div></a><a class="card reveal" style="--d:0.62s" href="creative-directing.html"><div class="card__top mono"><span>Workshop 02</span><span>Early access</span></div><p class="card__num" aria-hidden="true">02</p><h2 class="card__title">Creative<br>Directing</h2><p class="card__pitch">Find the idea, make the decisions, lead the work to the last frame.</p><div class="card__foot"><div class="card__tags mono" aria-label="Covers"><span>Brief</span><span>Treatment</span><span>Look</span><span>Direction</span></div><span class="card__go"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 12h16M13.5 6l6 6-6 6"/></svg></span></div></a><a class="card reveal" style="--d:0.74s" href="motion-design.html"><div class="card__top mono"><span>Workshop 03</span><span>Early access</span></div><p class="card__num" aria-hidden="true">03</p><h2 class="card__title">Motion<br>Design</h2><p class="card__pitch">Timing, type and craft that hold up frame by frame.</p><div class="card__foot"><div class="card__tags mono" aria-label="Covers"><span>Frames</span><span>Timing</span><span>Type</span><span>Delivery</span></div><span class="card__go"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 12h16M13.5 6l6 6-6 6"/></svg></span></div></a>
-  </section>
-  <section class="closing reveal">
-    <p class="mono dim">Questions</p>
-    <p class="txt">Not sure which one fits you? <a href="mailto:hello@sohaib-aref.com?subject=Workshops">Write to me</a>.</p>
+    <a class="card reveal" style="--d:0.35s" href="ai-video-production.html"><p class="card__num" aria-hidden="true">01</p><h2 class="card__title">AI Video<br>Production</h2><div class="card__foot"><div class="card__icons"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 5H3" /><path d="M10 12H3" /><path d="M10 19H3" /><path d="M15 12.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997a1 1 0 0 1-1.517-.86z" /></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11 17a4 4 0 0 1-8 0V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2Z" /><path d="M16.7 13H19a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H7" /><path d="M 7 17h.01" /><path d="m11 8 2.3-2.3a2.4 2.4 0 0 1 3.404.004L18.6 7.6a2.4 2.4 0 0 1 .026 3.434L9.9 19.8" /></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72" /><path d="m14 7 3 3" /><path d="M5 6v4" /><path d="M19 14v4" /><path d="M10 2v2" /><path d="M7 8H3" /><path d="M21 16h-4" /><path d="M11 3H9" /></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" /><path d="M14 15H9v-5" /><path d="M16 3h5v5" /><path d="M21 3 9 15" /></svg></div><span class="card__go"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></a><a class="card reveal" style="--d:0.47s" href="creative-directing.html"><p class="card__num" aria-hidden="true">02</p><h2 class="card__title">Creative<br>Directing</h2><div class="card__foot"><div class="card__icons"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /><path d="M14 2v5a1 1 0 0 0 1 1h5" /><circle cx="11.5" cy="14.5" r="2.5" /><path d="M13.3 16.3 15 18" /></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4" /><path d="M2 6h4" /><path d="M2 10h4" /><path d="M2 14h4" /><path d="M2 18h4" /><path d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" /></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /><path d="m14.31 8 5.74 9.94" /><path d="M9.69 8h11.48" /><path d="m7.38 12 5.74-9.94" /><path d="M9.69 16 3.95 6.06" /><path d="M14.31 16H2.83" /><path d="m16.62 12-5.74 9.94" /></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" /><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" /><path d="M8 6v8" /></svg></div><span class="card__go"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></a><a class="card reveal" style="--d:0.59s" href="motion-design.html"><p class="card__num" aria-hidden="true">03</p><h2 class="card__title">Motion<br>Design</h2><div class="card__foot"><div class="card__icons"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="7" height="18" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="19" cy="5" r="2" /><circle cx="5" cy="19" r="2" /><path d="M5 17A12 12 0 0 1 17 5" /></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v16" /><path d="M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2" /><path d="M9 20h6" /></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /><path d="m3.3 7 8.7 5 8.7-5" /><path d="M12 22V12" /></svg></div><span class="card__go"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></a>
   </section>
   <footer class="foot"><p class="mono links"><a href="index.html">Home</a><a href="mailto:hello@sohaib-aref.com?subject=Workshops">hello@sohaib-aref.com</a><a href="https://www.instagram.com/sohaib_creative/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/sohaib-creative/" target="_blank" rel="noopener">LinkedIn</a></p></footer>
 </main>
-<div class="cue" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.5v16M6 13.5l6 6 6-6"/></svg></div>
+<div class="cue" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></div>
 <script>
 (function(){
   var el=document.querySelector('[data-fit]'),box=el.parentNode;
