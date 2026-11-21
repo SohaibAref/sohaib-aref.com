@@ -29,20 +29,22 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{-webkit-tap-highlight-color:transparent;background:#000;color:#fff;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 .page{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;padding:40px}
 .content{flex:1;display:flex;flex-direction:column}
-.top{display:flex;justify-content:flex-end;margin-bottom:clamp(16px,1.8vw,28px)}
-.ws{display:inline-flex;align-items:center;gap:10px;padding:9px 14px 9px 14px;border:0;border-radius:99px;background:#fff;color:#000;font-family:"Martian Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.02em;text-transform:uppercase;line-height:1;white-space:nowrap;transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s}
-.ws:hover{border:0;transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,255,255,.12)}
-.ws:focus-visible{outline:1px solid #fff;outline-offset:4px}
-.ws__dot{position:relative;width:7px;height:7px;border-radius:50%;background:#000;flex:none}
-.ws__dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid #000;animation:ping 2.2s cubic-bezier(0,0,.2,1) infinite}
-@keyframes ping{0%{transform:scale(.5);opacity:1}80%,100%{transform:scale(1.5);opacity:0}}
-.ws__deal{padding:5px 8px;border-radius:99px;background:#000;color:#fff;font-size:11px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px 24px;flex-wrap:wrap}
+.soc{display:flex;align-items:center;gap:20px}
+.soc a{display:inline-flex;border:0;padding:0;color:#fff;opacity:.72;transition:opacity .3s}
+.soc a:hover{opacity:1}
+.soc svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ws{display:inline-flex;align-items:center;gap:12px;border:0;padding:0;color:#fff;white-space:nowrap}
+.ws__dot{position:relative;width:6px;height:6px;border-radius:50%;background:#fff;flex:none}
+.ws__dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid #fff;animation:ping 2.4s cubic-bezier(0,0,.2,1) infinite}
+@keyframes ping{0%{transform:scale(.5);opacity:.9}80%,100%{transform:scale(1.6);opacity:0}}
+.ws__deal{padding:4px 9px 3px;border:1px solid rgba(255,255,255,.45);border-radius:99px;transition:background .3s,color .3s,border-color .3s}
 .ws__arr{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.ws:hover .ws__deal{background:#fff;color:#000;border-color:#fff}
 .ws:hover .ws__arr{transform:translateX(3px)}
-.ws--float{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));z-index:20;padding:13px 18px;transform:translate(-50%,calc(100% + 40px));box-shadow:0 10px 40px rgba(0,0,0,.6);transition:transform .5s cubic-bezier(.22,1,.36,1)}
-.ws--float.on{transform:translate(-50%,0)}
-@media (min-width:811px) and (min-aspect-ratio:4/5){.ws--float{display:none}.ws{font-size:13px;padding:12px 18px;gap:12px}.ws__deal{font-size:12px;padding:6px 10px}.ws__dot{width:8px;height:8px}}
-@media (prefers-reduced-motion:reduce){.ws__dot::after{animation:none}.ws--float{transition:none}}
+.ws:focus-visible{outline:1px solid #fff;outline-offset:6px}
+.ws--bar{display:none}
+@media (prefers-reduced-motion:reduce){.ws__dot::after{animation:none}}
 .mark{position:relative;font-weight:900;font-size:13.6vw;line-height:.8;letter-spacing:-.035em;text-transform:uppercase;white-space:nowrap;margin-left:-.04em;padding-top:.06em}
 .mark .w{display:inline}
 .l{position:relative;display:inline-block}
@@ -58,7 +60,6 @@ body{-webkit-tap-highlight-color:transparent;background:#000;color:#fff;font-fam
 .bio .ch{display:inline-block;text-align:center;white-space:pre}
 .mono{font-family:"Martian Mono",ui-monospace,monospace;font-size:clamp(11px,.2vw + 8.2px,12px);letter-spacing:.02em;text-transform:uppercase;line-height:1.6}
 .foot{margin-top:clamp(36px,4.5vw,64px)}
-.links{display:flex;gap:12px 24px;flex-wrap:wrap}
 a{color:#fff;text-decoration:none;border-bottom:1px solid #444;padding-bottom:2px;transition:border-color .3s}
 a:hover{border-color:#fff}
 a:focus-visible{outline:1px solid #fff;outline-offset:4px}
@@ -82,9 +83,8 @@ html.intro .bio p{--b:9px;--y:12px;animation:focus 1.7s cubic-bezier(.22,1,.36,1
 html.intro .bio p:nth-child(1){animation-delay:.55s}html.intro .bio p:nth-child(2){animation-delay:.65s}html.intro .bio p:nth-child(3){animation-delay:.75s}html.intro .bio p:nth-child(4){animation-delay:.85s}
 html.intro .who__txt{--b:6px;animation:focus 1.5s cubic-bezier(.22,1,.36,1) .85s both paused}
 html.intro .foot{--b:6px;animation:focus 1.5s cubic-bezier(.22,1,.36,1) 1.05s both paused}
-html.intro .top{--b:6px;--y:-6px;animation:focus 1.5s cubic-bezier(.22,1,.36,1) .9s both paused}
-html.intro.go .mark .l,html.intro.go .bio p,html.intro.go .frame,html.intro.go .frame img,html.intro.go .who__txt,html.intro.go .foot,html.intro.go .top{animation-play-state:running}
-html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intro-done .frame img,html.intro-done .who__txt,html.intro-done .foot,html.intro-done .top{animation:none}
+html.intro.go .mark .l,html.intro.go .bio p,html.intro.go .frame,html.intro.go .frame img,html.intro.go .who__txt,html.intro.go .foot{animation-play-state:running}
+html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intro-done .frame img,html.intro-done .who__txt,html.intro-done .foot{animation:none}
 @media (max-width:810px),(max-width:1100px) and (max-aspect-ratio:4/5){
   .who__txt{margin-bottom:0}
   .page{padding:20px 20px 28px}
@@ -95,6 +95,8 @@ html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intr
   .who{justify-content:space-between}
   .who__txt{text-align:left;order:0}
   .frame{width:min(42%,220px)}
+  .ws--bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;justify-content:space-between;padding:15px 20px calc(15px + env(safe-area-inset-bottom));background:rgba(0,0,0,.84);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.14);transform:translateY(100%);transition:transform .55s cubic-bezier(.22,1,.36,1)}
+  .ws--bar.on{transform:none}
 }
 /* laptops with short screens: the same layout, tighter rhythm, so it still fits in one view */
 @media (min-width:811px) and (min-aspect-ratio:4/5) and (max-height:880px){
@@ -120,14 +122,13 @@ html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intr
 <body>
 <div class="page">
   <main class="content">
-  <nav class="top" aria-label="Workshops"><a class="ws" href="workshops.html" data-ws-top><span class="ws__dot" aria-hidden="true"></span><span>Workshops</span><span class="ws__deal">20% off</span><svg class="ws__arr" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></nav>
   <h1 class="mark" data-fit aria-label="Sohaib Aref"><span class="w" aria-hidden="true"><span class="l" style="--i:0"><span class="g">S</span></span><span class="l" style="--i:1"><span class="g">o</span></span><span class="l" style="--i:2"><span class="g">h</span></span><span class="l" style="--i:3"><span class="g">a</span></span><span class="l" style="--i:4"><span class="g">i</span></span><span class="l" style="--i:5"><span class="g">b</span></span></span> <span class="w" aria-hidden="true"><span class="l" style="--i:6"><span class="g">A</span></span><span class="l" style="--i:7"><span class="g">r</span></span><span class="l" style="--i:8"><span class="g">e</span></span><span class="l" style="--i:9"><span class="g">f</span></span></span></h1>
   <div class="low">
     <section class="bio" data-bio>
       <p>Creative director with a maker’s hands. Over 8 years in VFX, motion design and 3D, I’ve worked on more than 150 projects for 40+ brands across Türkiye, KSA and Europe, with campaigns seen millions of times.</p>
       <p>I started in broadcast television as a VFX artist, where a shot has to be finished before it airs. That habit of seeing every frame through stayed with me. Today, depending on the project, I come in as creative director, director or motion designer, and I move between them without losing the idea.</p>
       <p>What I care about most is why a piece exists, and the one decision that makes it work. It’s the same question behind my first short film as director, now in post-production.</p>
-      <p class="cta">Open to creative direction and motion projects. <a href="mailto:hello@sohaib-aref.com">Write to me</a>.</p>
+      <p class="cta">Open to creative direction and motion projects: <a href="mailto:hello@sohaib-aref.com">hello@sohaib-aref.com</a></p>
     </section>
     <div class="who">
       <div class="who__txt"><ul class="mono where"><li>Türkiye</li><li>KSA</li><li>France</li><li>Worldwide</li></ul><p class="role">Creative Director</p></div>
@@ -135,16 +136,16 @@ html.intro-done .mark .l,html.intro-done .bio p,html.intro-done .frame,html.intr
     </div>
   </div>
   </main>
-  <footer class="foot"><p class="mono links"><a href="mailto:hello@sohaib-aref.com">hello@sohaib-aref.com</a><a href="https://www.instagram.com/sohaib_creative/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/sohaib-creative/" target="_blank" rel="noopener">LinkedIn</a><a href="workshops.html">Workshops</a></p></footer>
+  <footer class="foot"><nav class="soc" aria-label="Social"><a href="https://www.instagram.com/sohaib_creative/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg></a><a href="https://www.linkedin.com/in/sohaib-creative/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a></nav><a class="ws mono" href="workshops.html" data-ws><span class="ws__dot" aria-hidden="true"></span><span class="ws__lbl">Workshops</span><span class="ws__deal">20% off</span><svg class="ws__arr" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></footer>
 </div>
-<a class="ws ws--float" href="workshops.html" data-ws-float aria-hidden="true" tabindex="-1"><span class="ws__dot" aria-hidden="true"></span><span>Workshops</span><span class="ws__deal">20% off</span><svg class="ws__arr" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+<a class="ws ws--bar mono" href="workshops.html" data-ws-bar aria-hidden="true" tabindex="-1"><span class="ws" style="gap:12px"><span class="ws__dot" aria-hidden="true"></span><span class="ws__lbl">Workshops</span><span class="ws__deal">20% off</span></span><svg class="ws__arr" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 <script>
 (function(){
-  var t=document.querySelector('[data-ws-top]'),f=document.querySelector('[data-ws-float]'),foot=document.querySelector('.foot');
-  if(!t||!f||!('IntersectionObserver' in window))return;
-  var topOut=false,footIn=false;
-  function u(){f.classList.toggle('on',topOut&&!footIn)}
-  new IntersectionObserver(function(e){topOut=!e[0].isIntersecting;u()}).observe(t);
+  var b=document.querySelector('[data-ws-bar]'),foot=document.querySelector('.foot'),h=document.documentElement;
+  if(!b||!('IntersectionObserver' in window))return;
+  var ready=!h.classList.contains('intro'),footIn=false;
+  function u(){b.classList.toggle('on',ready&&!footIn)}
+  addEventListener('introdone',function(){ready=true;u()});setTimeout(function(){ready=true;u()},2400);
   new IntersectionObserver(function(e){footIn=e[0].isIntersecting;u()}).observe(foot);
 })();
 </script>
