@@ -12,11 +12,11 @@
 <link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <script>if(!matchMedia("(prefers-reduced-motion:reduce)").matches)document.documentElement.classList.add("intro")</script>
 <title>Motion Design, a workshop by Sohaib Aref</title>
-<meta name="description" content="Motion Design, a workshop by Sohaib Aref. Timing, type and craft that hold up frame by frame. Early access is open.">
+<meta name="description" content="Motion Design, a workshop by Sohaib Aref. Timing, type and craft that hold up frame by frame. Join early and get 20% off.">
 <link rel="canonical" href="https://sohaib-aref.com/motion-design.html">
 <meta property="og:url" content="https://sohaib-aref.com/motion-design.html">
 <meta property="og:title" content="Motion Design, a workshop by Sohaib Aref">
-<meta property="og:description" content="Timing, type and craft that hold up frame by frame. Early access is open.">
+<meta property="og:description" content="Timing, type and craft that hold up frame by frame. Join early and get 20% off.">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Course", "name": "Motion Design", "description": "Good motion starts before the first keyframe. I show how I design frames that work as stills, then give them timing, rhythm and weight. We go from style frames to a finished animation, with the habits from broadcast television that keep work clean and on time.", "url": "https://sohaib-aref.com/motion-design.html", "inLanguage": "en", "teaches": ["Frames first", "Timing", "Type in motion", "2D and 3D", "Build and deliver"], "audience": {"@type": "Audience", "audienceType": "Designers new to motion, Motion designers"}, "provider": {"@type": "Person", "name": "Sohaib Aref", "jobTitle": "Creative Director", "url": "https://sohaib-aref.com/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sohaib Aref", "item": "https://sohaib-aref.com/"}, {"@type": "ListItem", "position": 2, "name": "Workshops", "item": "https://sohaib-aref.com/workshops.html"}, {"@type": "ListItem", "position": 3, "name": "Motion Design", "item": "https://sohaib-aref.com/motion-design.html"}]}</script>
 <style>
@@ -60,7 +60,10 @@ a:focus-visible,button:focus-visible{outline:1px solid #fff;outline-offset:4px}
 .card::before{content:"";position:absolute;inset:0;z-index:-1;background:#fff;transform:scaleY(0);transform-origin:50% 100%;transition:transform .6s cubic-bezier(.65,0,.35,1)}
 .card:active{border-color:#8a8a8a}
 .card:active .card__go{background:#fff;border-color:#fff;color:#000}
+.card__top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
 .card__num{font-weight:200;font-size:clamp(64px,6.4vw,120px);line-height:.8;letter-spacing:-.06em;color:#2a2a2a;margin:0 0 0 -.06em;transition:color .5s}
+.card__deal{flex:none;display:inline-flex;align-items:center;gap:8px;padding:7px 12px 7px 9px;border-radius:99px;background:#fff;color:#000;font-family:"Martian Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.02em;text-transform:uppercase;line-height:1;transition:background-color .5s,color .5s}
+.card__deal .i{width:16px;height:16px}
 .card__title{font-weight:900;font-size:clamp(32px,3.3vw,60px);line-height:.88;letter-spacing:-.04em;text-transform:uppercase;margin:auto 0 0 -.04em;padding-top:40px}
 .card__foot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:clamp(22px,2.2vw,36px)}
 .card__icons{display:flex;gap:clamp(12px,1.1vw,18px);color:#6a6a6a;transition:color .5s}
@@ -71,13 +74,14 @@ a:focus-visible,button:focus-visible{outline:1px solid #fff;outline-offset:4px}
 .card:hover{color:#000;border-color:#fff}
 .card:hover::before{transform:scaleY(1)}
 .card:hover .card__num{color:#d4d4d4}
+.card:hover .card__deal{background:#000;color:#fff}
 .card:hover .card__icons{color:#000}
 .card:hover .card__go{background:#000;border-color:#000;color:#fff}
 .card:hover .card__go .ico{transform:translateX(3px)}
 }
 /* the small card, for the other workshops: number, title, arrow */
 .card--small{min-height:clamp(200px,16vw,260px)}
-.card--small .card__num{font-family:"Martian Mono",ui-monospace,monospace;font-weight:400;font-size:12px;letter-spacing:.02em;line-height:1;margin:0;color:#6a6a6a}
+.card--small .card__num{font-family:"Martian Mono",ui-monospace,monospace;font-weight:400;font-size:12px;letter-spacing:.02em;line-height:1;margin:0;color:#6a6a6a;align-self:center}
 .card--small .card__title{font-size:clamp(26px,2.4vw,40px)}
 .card--small .card__title{padding-right:64px}
 .card--small .card__foot{position:absolute;right:clamp(20px,1.8vw,28px);bottom:clamp(20px,1.8vw,28px);margin:0}
@@ -153,6 +157,8 @@ html.intro .reveal.in{--b:10px;--y:24px;animation:focus 1.5s cubic-bezier(.22,1,
 .board{margin:0;min-width:0}
 .board__scroll{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#333 transparent}
 .board img{display:block;width:100%;min-width:980px;height:auto}
+.board img.board--wide{border:1px solid #1c1c1c}
+@media (max-width:1000px){.board img.board--wide{min-width:1400px}}
 .board figcaption{padding-top:14px}
 .board__wrap{position:relative}
 .board__wrap::after{content:"";position:absolute;top:0;right:0;bottom:0;width:72px;background:linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,.6));opacity:0;transition:opacity .4s;pointer-events:none}
@@ -166,9 +172,14 @@ html.intro .reveal.in{--b:10px;--y:24px;animation:focus 1.5s cubic-bezier(.22,1,
 @media (max-width:810px){.films__grid{grid-template-columns:1fr}}
 /* sign up */
 .join{background:#0a0a0a;border:1px solid #222;padding:clamp(24px,3vw,56px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:32px clamp(32px,4vw,80px)}
-.join .h2{font-size:clamp(34px,3.6vw,64px);margin-bottom:20px}
-.note{display:flex;align-items:center;gap:12px;color:#c9c9c9;font-size:clamp(15px,.3vw + 12px,17px);line-height:1.4}
-.note .i{width:20px;height:20px;color:#fff}
+.join .h2{font-size:clamp(34px,3.6vw,64px);margin-bottom:24px}
+.perks{list-style:none;padding:0;display:grid;gap:14px}
+.perks li{display:flex;align-items:center;gap:12px;color:#c9c9c9;font-size:clamp(15px,.3vw + 12px,17px);line-height:1.35}
+.perks .i{width:20px;height:20px;color:#fff}
+.perks .perk--deal{color:#fff;font-weight:600}
+.hero__cta{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.deal{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#fff}
+.deal .i{width:20px;height:20px}
 form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;align-content:start}
 .f{display:flex;flex-direction:column;gap:8px}
 .f label{color:#8a8a8a}
@@ -198,21 +209,21 @@ html.intro .hero .title{--b:.08em;--y:.1em;animation-delay:.05s}html.intro .hero
 html.intro.go .hero>*{animation-play-state:running}
 @media (max-width:1000px){.join{grid-template-columns:1fr}}
 @media (max-width:810px){.by{grid-template-columns:auto minmax(0,1fr)}.stats{grid-column:1/-1;margin-top:8px}.tiles{grid-template-columns:1fr 1fr}.more{grid-template-columns:1fr}.hero{padding-top:28px}}
-@media (max-width:560px){.sec{margin-top:88px}.hero__row .btn{width:100%}form{grid-template-columns:1fr}.send .btn{width:100%;min-width:0}
+@media (max-width:560px){.sec{margin-top:88px}.hero__cta{width:100%}.hero__row .btn{width:100%}form{grid-template-columns:1fr}.send .btn{width:100%;min-width:0}
 .tile{min-height:132px;gap:28px;padding:18px}.tile b{font-size:16px}
 .by{grid-template-columns:auto minmax(0,1fr)}.by img{width:96px}.by .h2{font-size:30px}.stats{grid-column:1/-1;margin-top:4px;gap:16px 32px}
 .roles li{padding:12px 16px 12px 14px}}
 </style>
 </head>
 <body>
-<header class="bar bar--detail" data-bar><nav class="bar__in mono" aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Sohaib Aref</a></li><li><a href="workshops.html">Workshops</a></li><li><span aria-current="page">Motion Design</span></li></ol><a class="crumbs__back" href="workshops.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>All workshops</a><a class="bar__cta" href="#early-list" data-scroll>Join the early list</a></nav></header>
+<header class="bar bar--detail" data-bar><nav class="bar__in mono" aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Sohaib Aref</a></li><li><a href="workshops.html">Workshops</a></li><li><span aria-current="page">Motion Design</span></li></ol><a class="crumbs__back" href="workshops.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>All workshops</a><a class="bar__cta" href="#early-list" data-scroll>Join the workshop</a></nav></header>
 <main class="page">
 
   <header class="hero">
     <h1 class="title">Motion<br>Design</h1>
     <div class="hero__row">
       <p class="pitch">Timing, type and craft that hold up frame by frame.</p>
-      <a class="btn mono" href="#early-list" data-scroll>Join the early list<span class="arr arr--d"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></span></a>
+      <div class="hero__cta"><a class="btn mono" href="#early-list" data-scroll>Join the workshop<span class="arr arr--d"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></span></a><p class="deal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="m15 9-6 6" /><path d="M9 9h.01" /><path d="M15 15h.01" /></svg><span>Join early, get 20% off</span></p></div>
     </div>
   </header>
 
@@ -237,8 +248,8 @@ html.intro.go .hero>*{animation-play-state:running}
 
   <section class="sec join reveal" id="early-list" aria-labelledby="join-h">
     <div>
-      <h2 class="h2" id="join-h">Join the<br>early list</h2>
-      <p class="note"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.268 21a2 2 0 0 0 3.464 0" /><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" /></svg><span>You’ll hear about dates and places first.</span></p>
+      <h2 class="h2" id="join-h">Join the<br>workshop</h2>
+      <ul class="perks"><li class="perk--deal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="m15 9-6 6" /><path d="M9 9h.01" /><path d="M15 15h.01" /></svg><span>20% off when the price is announced</span></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.268 21a2 2 0 0 0 3.464 0" /><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" /></svg><span>First to hear dates and places</span></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg><span>Free to join, no payment now</span></li></ul>
     </div>
     <div>
       <form novalidate data-endpoint="https://sohaib-aref.netlify.app/" data-kit="10207674" data-slug="motion-design" name="early-list">
@@ -250,7 +261,7 @@ html.intro.go .hero>*{animation-play-state:running}
         <div class="f"><label class="mono" for="r">What you do</label><select id="r" name="role"><option value="" selected>Choose one</option><option>Designer</option><option>Motion designer</option><option>Art director</option><option>Creative director</option><option>Filmmaker or director</option><option>Editor</option><option>Marketer</option><option>Student</option><option>Other</option></select></div>
         <div class="f"><label class="mono" for="c">City</label><input id="c" name="city" autocomplete="address-level2"></div>
         <label class="check"><input type="checkbox" name="consent" value="yes"><span>Email me about this workshop. My details stay on this list, and I can leave anytime.</span></label>
-        <div class="send"><button class="btn mono" type="submit"><span class="lbl">Join the early list</span><span class="arr"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></button><p class="fail" role="alert">That didn’t go through. Try again, or write to <a href="mailto:hello@sohaib-aref.com?subject=Early%20list%3A%20Motion%20Design">hello@sohaib-aref.com</a>.</p></div>
+        <div class="send"><button class="btn mono" type="submit"><span class="lbl">Join the workshop</span><span class="arr"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></button><p class="fail" role="alert">That didn’t go through. Try again, or write to <a href="mailto:hello@sohaib-aref.com?subject=Early%20list%3A%20Motion%20Design">hello@sohaib-aref.com</a>.</p></div>
       </form>
       <div class="done" role="status">
         <div class="via-kit"><h3>Check your inbox.</h3><p class="txt">Tap the button in the email I sent to <span data-echo></span>.</p></div>
@@ -261,7 +272,7 @@ html.intro.go .hero>*{animation-play-state:running}
 
   <section class="sec" aria-labelledby="more-h">
     <h2 class="h2 reveal" id="more-h">More workshops</h2>
-    <div class="more"><a class="card card--small reveal" style="--d:0s" href="ai-video-production.html"><p class="card__num" aria-hidden="true">01</p><h3 class="card__title">AI Video<br>Production</h3><div class="card__foot"><span class="card__go"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></a><a class="card card--small reveal" style="--d:0s" href="creative-directing.html"><p class="card__num" aria-hidden="true">02</p><h3 class="card__title">Creative<br>Directing</h3><div class="card__foot"><span class="card__go"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></a></div>
+    <div class="more"><a class="card card--small reveal" style="--d:0s" href="ai-video-production.html"><div class="card__top"><p class="card__num" aria-hidden="true">01</p><span class="card__deal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="m15 9-6 6" /><path d="M9 9h.01" /><path d="M15 15h.01" /></svg>20% off</span></div><h3 class="card__title">AI Video<br>Production</h3><div class="card__foot"><span class="card__go"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></a><a class="card card--small reveal" style="--d:0s" href="creative-directing.html"><div class="card__top"><p class="card__num" aria-hidden="true">02</p><span class="card__deal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="m15 9-6 6" /><path d="M9 9h.01" /><path d="M15 15h.01" /></svg>20% off</span></div><h3 class="card__title">Creative<br>Directing</h3><div class="card__foot"><span class="card__go"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></a></div>
   </section>
 
   <footer class="foot"><p class="mono links"><a href="index.html">Home</a><a href="mailto:hello@sohaib-aref.com?subject=Workshops">hello@sohaib-aref.com</a><a href="https://www.instagram.com/sohaib_creative/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/sohaib-creative/" target="_blank" rel="noopener">LinkedIn</a></p></footer>
@@ -340,7 +351,7 @@ html.intro.go .hero>*{animation-play-state:running}
         location.assign('joined.html?w='+encodeURIComponent(slug)+(kitOk?'':'&s=saved'));
         return;
       }
-      box.classList.add('failed');btn.disabled=false;label.textContent='Join the early list';
+      box.classList.add('failed');btn.disabled=false;label.textContent='Join the workshop';
     });
   });
 })();
